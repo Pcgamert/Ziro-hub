@@ -10,8 +10,9 @@ Section:NewSlider("Speed", "SliderInfo", 500, 0, function(s)
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
 end)
 
-Section:NewButton("Fly","", function()
+Section:NewButton("Fly", "", function()
 loadstring(game:HttpGet("https://pastebin.com/raw/FNJwpa33"))()
+end)
 
 local Tab = Window:NewTab("Main")
 
