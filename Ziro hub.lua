@@ -6,7 +6,7 @@ local Tab = Window:NewTab("Other")
 
 local Section = Tab:NewSection("Other")
 
-Section:NewSlider("SliderText", "SliderInfo", 500, 0, function(s)
+Section:NewSlider("Speed", "SliderInfo", 500, 0, function(s)
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
 end)
 
