@@ -10,6 +10,10 @@ Section:NewSlider("Speed", "SliderInfo", 500, 0, function(s)
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
 end)
 
+Section:NewButton("ShiftLock", "", function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/MiniNoobie/ShiftLockx/main/Shiftlock-MiniNoobie",true))()
+end)
+
 Section:NewButton("Fly", "ButtonInfo", function()
 loadstring(game:HttpGet("https://pastebin.com/raw/FNJwpa33"))()  
 end)
