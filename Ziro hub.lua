@@ -18,7 +18,7 @@ Section:NewButton("Fly", "ButtonInfo", function()
 loadstring(game:HttpGet("https://pastebin.com/raw/FNJwpa33"))()  
 end)
 
-Section:NewButton("Esp", "", function()
+Section:NewButton("да сука блять", "", function()
 while wait(0.5) do
     for i, parent in ipairs(workspace:GetDescendants()) do
         if parent:FindFirstChild("Humanoid") then
