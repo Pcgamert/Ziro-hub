@@ -18,26 +18,7 @@ Section:NewButton("Fly", "ButtonInfo", function()
 loadstring(game:HttpGet("https://pastebin.com/raw/FNJwpa33"))()  
 end)
 
-Section:NewButton("Esp", "ButtonInfo", function()
-while wait(0.5) do
-    for i, parent in ipairs(workspace:GetDescendants()) do
-        if parent:FindFirstChild("Humanoid") then
-            if not parent:FindFirstChild("EspBox") then
-                if parent ~= game.Players.LocalPlayer.Character then
-                    local esp = Instance.new("BoxHandleAdornment",childrik)
-                    esp.Adornee = parent
-                    esp.ZIndex = 0
-                    esp.Size = Vector3.new(4, 5, 1)
-                    esp.Transparency = 0.65
-                    esp.Color3 = Color3.fromRGB(255,48,48)
-                    esp.AlwaysOnTop = true
-                    esp.Name = "EspBox"
-                end
-            end
-        end
-    end
-end
-end)
+
 
 local Tab = Window:NewTab("Main")
 local Section = Tab:NewSection("Main")
