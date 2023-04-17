@@ -44,7 +44,7 @@ local Section = Tab:NewSection("Main")
 
 
 
-Section:NewToggle("ToggleText", "ToggleInfo", function(state)
+Section:NewToggle("AutoFarm", "ToggleInfo", function(state)
     if state then
         while wait() do
 game.Workspace.Gravity = 0
