@@ -24,7 +24,7 @@ while wait(0.5) do
         if parent:FindFirstChild("Humanoid") then
             if not parent:FindFirstChild("EspBox") then
                 if parent ~= game.Players.LocalPlayer.Character then
-                    local esp = Instance.new("BoxHandleAdornment",parent)
+                    local esp = Instance.new("BoxHandleAdornment", parent)
                     esp.Adornee = parent
                     esp.ZIndex = 0
                     esp.Size = Vector3.new(4, 4, 1)
