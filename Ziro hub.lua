@@ -42,9 +42,10 @@ end)
 local Tab = Window:NewTab("Main")
 local Section = Tab:NewSection("Main")
 
-Section:NewToggle("AutoFarm", "" function()
-if toggle on then
-while wait() do
+
+Section:NewToggle("ToggleText", "ToggleInfo", function(AFK)
+    if AFK then
+ while wait() do
 game.Workspace.Gravity = 0
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-41.9544487, 35.7701721, 1369.04651, -0.00287247682, 0.0048801424, 0.999983966, 0.0487096235, 0.998801768, -0.00473445328, -0.998808861, 0.0486952439, -0.00310674496)
 wait(1)
@@ -70,8 +71,13 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-55.0149
 wait(15)
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-41.9544487, 35.7701721, 1369.04651, -0.00287247682, 0.0048801424, 0.999983966, 0.0487096235, 0.998801768, -0.00473445328, -0.998808861, 0.0486952439, -0.00310674496)
 end
+
+    else
+        
+    end
 end)
-if toggle off
+
+end)
 
 
 Section:NewButton("Chest", "", function()
