@@ -44,13 +44,7 @@ local Section = Tab:NewSection("Main")
 
 
 
-Section:NewToggle("AutoFarm", "ToggleInfo", function(state)
-    if state then
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Pcgamert/build-a-boat-for-treashure-script/main/AutoFarm.lua"))()
-end
-    else
-       
-end)
+
 
 
 Section:NewButton("Chest", "", function()
