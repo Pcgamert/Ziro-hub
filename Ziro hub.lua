@@ -49,7 +49,7 @@ Section:NewToggle("AutoFarm", "ToggleInfo", function(state)
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Pcgamert/build-a-boat-for-treashure-script/main/AutoFarm.lua"))()
 end
     else
-        print("Toggle Off")
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Pcgamert/build-a-boat-for-treashure-script/main/StopAutoFarm.lua"))()
     end
 end)
 
