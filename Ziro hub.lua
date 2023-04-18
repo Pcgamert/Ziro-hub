@@ -43,9 +43,9 @@ local Tab = Window:NewTab("Main")
 local Section = Tab:NewSection("Main")
 
 
-Section:NewToggle("ToggleText", "ToggleInfo", function(state)
+Section:NewToggle("AutoFarm", "ToggleInfo", function(state)
     if state then
-      loadstring(game:HttpGet("https://github.com/Pcgamert/build-a-boat-for-treashure-script/blob/main/AutoFarm.lua"))()
+      loadstring(game:HttpGet("https://raw.githubusercontent.com/Pcgamert/build-a-boat-for-treashure-script/main/AutoFarm.lua"))()
     else
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Pcgamert/build-a-boat-for-treashure-script/main/StopAutoFarm.lua"))()
     end
