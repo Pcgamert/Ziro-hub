@@ -42,6 +42,15 @@ end)
 local Tab = Window:NewTab("Main")
 local Section = Tab:NewSection("Main")
 
+
+Section:NewToggle("ToggleText", "ToggleInfo", function(state)
+    if state then
+      loadstring(game:HttpGet("https://github.com/Pcgamert/build-a-boat-for-treashure-script/blob/main/AutoFarm.lua"))()
+    else
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Pcgamert/build-a-boat-for-treashure-script/main/StopAutoFarm.lua"))()
+    end
+end)
+
 Section:NewButton("Chest", "", function()
     
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-59.4428215, -360.396698, 9395.61328, -0.999882996, -1.53612278e-09, -0.015298591, 2.61689563e-12, 1, -1.00580465e-07, 0.015298591, -1.00568741e-07, -0.999882996)
