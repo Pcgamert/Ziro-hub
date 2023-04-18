@@ -1,4 +1,4 @@
-for i = 1,1 do
+for i = 1, 1 do
 
 game.Workspace.Gravity = 0
 
