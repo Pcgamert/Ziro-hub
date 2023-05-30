@@ -1,0 +1,2 @@
+if PlaceId == 537413528 then
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Pcgamert/build-a-boat-for-treashure-script/main/Ziro%20hub.lua"))()
