@@ -43,7 +43,7 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-71.2110
 wait(1)
 
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-55.0149765, -322.744934, 9484.82129, -0.997964144, -0.0192918815, 0.0607900396, 1.13142548e-07, 0.953153312, 0.302487612, -0.063777782, 0.301871777, -0.951212823)
-
-wait(15)
+game.Workspace.Gravity = 192.2
+wait(18)
 
 end
