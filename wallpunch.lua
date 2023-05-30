@@ -2,3 +2,4 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Pcgam
 
 local Window = Library.CreateLib("Ziro hub", "RJTheme3")
 
+local Tab = Window:NewTab("Main")
