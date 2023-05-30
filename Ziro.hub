@@ -1,2 +1,3 @@
-if game.PlaceId == 537413528 then 
-loadstring(game:HttpGet("https://github.com/Pcgamert/build-a-boat-for-treashure-script/main/Babaft.lua"))() end
+if game.PlaceId == 537413528 {
+loadstring(game:HttpGet("https://github.com/Pcgamert/build-a-boat-for-treashure-script/main/Babaft.lua"))()
+}
