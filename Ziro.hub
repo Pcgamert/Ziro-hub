@@ -1,4 +1,4 @@
 local gameid = game.PlaceId
 if (gameid == 537413528) then
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Pcgamert/Ziro-hub/main/Babaft.lua"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Pcgamert/Ziro-hub/main/Babft.lua"))()
 end
