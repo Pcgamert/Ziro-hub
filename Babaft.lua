@@ -45,7 +45,7 @@ local Section = Tab:NewSection("Main")
 
 Section:NewToggle("AutoFarm", "ToggleInfo", function(state)
     if state then
-        https://raw.githubusercontent.com/Pcgamert/Ziro-hub/main/autofarm/autofarmbabft.lua
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Pcgamert/Ziro-hub/main/autofarm/autofarmbabft.lua"))()
 end
     else
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Pcgamert/build-a-boat-for-treashure-script/main/StopAutoFarm.lua"))()
