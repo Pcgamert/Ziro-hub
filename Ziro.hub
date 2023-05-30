@@ -1,4 +1,4 @@
 local gameid = game.PlaceId
 if (gameid == 537413528) then
-loadstring(game:HttpGet("https://github.com/Pcgamert/build-a-boat-for-treashure-script/blob/main/Babaft.lua"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Pcgamert/build-a-boat-for-treashure-script/main/Babaft.lua"))()
 end
