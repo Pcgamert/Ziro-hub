@@ -6,6 +6,7 @@ local Tab = Window:NewTab("Main")
 local Section = Tab:NewSection("Main")
 
 Section:NewDropdown("DropdownText", "DropdownInf", {"Arena 1", "Arena 2", "Arena 3"}, function(Option)
-    print(Option)
+    if option == "Arena 1"
+    print("ya gei") end
 end)
 
