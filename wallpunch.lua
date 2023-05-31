@@ -16,5 +16,11 @@ while wait() do
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-198.366608, 13.2265539, -98.447052, -0.0213577077, 0.12479949, 0.991952062, 9.29600503e-08, 0.99217838, -0.124827966, -0.999771893, -0.00266594696, -0.0211906675)
 
 end
+elseif option = "Arena 3" then 
+while wait() do 
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-202.67897, 18.1804104, -164.518539, 0.0418192372, -0.285094917, 0.957586586, -1.03103162e-07, 0.958424985, 0.285344541, -0.999125183, -0.0119329896, 0.0400805734)
+
+
+
 end)
 
