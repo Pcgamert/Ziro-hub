@@ -21,4 +21,4 @@ while wait() do
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-202.67897, 18.1804104, -164.518539, 0.0418192372, -0.285094917, 0.957586586, -1.03103162e-07, 0.958424985, 0.285344541, -0.999125183, -0.0119329896, 0.0400805734)
 wait(2)
 end
-end)
+end
