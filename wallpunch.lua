@@ -3,6 +3,8 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Pcgam
 local Window = Library.CreateLib("Ziro hub", "RJTheme3")
 
 local Tab = Window:NewTab("Main")
+local Section = Tab:NewSection("Main")
+
 Section:NewDropdown("DropdownText", "DropdownInf", {"Option 1", "Option 2", "Option 3"}, function(currentOption)
     print(currentOption)
 end)
