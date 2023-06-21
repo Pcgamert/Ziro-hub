@@ -204,9 +204,9 @@ local Tab = {}
 local Section = {}
 
 do
-	library.__index = library
-	page.__index = page
-	section.__index = section
+	Library.__index = library
+	Tab.__index = page
+	Section.__index = section
 	
 	-- new classes
 	
