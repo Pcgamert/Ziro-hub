@@ -43,13 +43,8 @@ local Tab = Window:NewTab("Main")
 local Section = Tab:NewSection("Main")
 
 
-Section:NewToggle("AutoFarm", "ToggleInfo", function(state)
-    if state then
+Section:NewButton("AutoFarm", "ToggleInfo", function(state)
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Pcgamert/Ziro-hub/main/autofarm/autofarmbabft.lua"))()
-end
-    else
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Pcgamert/build-a-boat-for-treashure-script/main/StopAutoFarm.lua"))()
-    end
 end)
 
 Section:NewButton("Chest", "", function()
