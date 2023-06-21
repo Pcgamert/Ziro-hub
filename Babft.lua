@@ -12,7 +12,7 @@ end)
 
 local tab2 = Main:CreateTab("Teleport")
 
-tab:CreateButton("Black", "ButtonInfo", function()
+tab2:CreateButton("Black", "ButtonInfo", function()
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.BlackTeam.Spawns.SpawnLocation.CFrame
 end)
 
@@ -20,7 +20,7 @@ tab2:CreateButton("White", "ButtonInfo", function()
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.WhiteTeam.Spawns.SpawnLocation.CFrame
 end)
 
-tab:CreateButton("Green", "", function()
+tab2:CreateButton("Green", "", function()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.CamoTeam.Spawns.SpawnLocation.CFrame
 end)
 
