@@ -200,8 +200,8 @@ end
 
 -- classes
 
-local library = {} -- main
-local Page = {}
+local Library = {} -- main
+local Tab = {}
 local Section = {}
 
 do
