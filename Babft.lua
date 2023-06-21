@@ -1,44 +1,6 @@
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Pcgamert/build-a-boat-for-treashure-script/main/Gui.lua"))()
 
 local Window = Library.CreateLib("Ziro hub", "RJTheme3")
-
-local Tab = Window:NewTab("Other")
-
-local Section = Tab:NewSection("Other")
-
-Section:NewSlider("Speed", "SliderInfo", 500, 0, function(s)
-    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
-end)
-
-Section:NewButton("ShiftLock", "", function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/MiniNoobie/ShiftLockx/main/Shiftlock-MiniNoobie",true))()
-end)
-
-Section:NewButton("Fly", "ButtonInfo", function()
-loadstring(game:HttpGet("https://pastebin.com/raw/FNJwpa33"))()  
-end)
-
-Section:NewButton("Esp", "Buttoninfo", function()
-while wait(0.5) do
-    for i, parent in ipairs(workspace:GetDescendants()) do
-        if parent:FindFirstChild("Humanoid") then
-            if not parent:FindFirstChild("EspBox") then
-                if parent ~= game.Players.LocalPlayer.Character then
-                    local esp = Instance.new("BoxHandleAdornment", parent)
-                    esp.Adornee = parent
-                    esp.ZIndex = 0
-                    esp.Size = Vector3.new(4, 4, 1)
-                    esp.Transparency = 0.65
-                    esp.Color3 = Color3.fromRGB(255,48,48)
-                    esp.AlwaysOnTop = true
-                    esp.Name = "EspBox"
-                end
-            end
-        end
-    end
-end
-end)
-
 local Tab = Window:NewTab("Main")
 local Section = Tab:NewSection("Main")
 
@@ -82,3 +44,40 @@ end)
 Section:NewButton("Yellow", "ButtonInfo", function()
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-576.394958, -13.1000061, 610.19989, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 end)
+local Tab = Window:NewTab("Other")
+
+local Section = Tab:NewSection("Other")
+
+Section:NewSlider("Speed", "SliderInfo", 500, 0, function(s)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
+Section:NewButton("ShiftLock", "", function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/MiniNoobie/ShiftLockx/main/Shiftlock-MiniNoobie",true))()
+end)
+
+Section:NewButton("Fly", "ButtonInfo", function()
+loadstring(game:HttpGet("https://pastebin.com/raw/FNJwpa33"))()  
+end)
+
+Section:NewButton("Esp", "Buttoninfo", function()
+while wait(0.5) do
+    for i, parent in ipairs(workspace:GetDescendants()) do
+        if parent:FindFirstChild("Humanoid") then
+            if not parent:FindFirstChild("EspBox") then
+                if parent ~= game.Players.LocalPlayer.Character then
+                    local esp = Instance.new("BoxHandleAdornment", parent)
+                    esp.Adornee = parent
+                    esp.ZIndex = 0
+                    esp.Size = Vector3.new(4, 4, 1)
+                    esp.Transparency = 0.65
+                    esp.Color3 = Color3.fromRGB(255,48,48)
+                    esp.AlwaysOnTop = true
+                    esp.Name = "EspBox"
+                end
+            end
+        end
+    end
+end
+end)
+
