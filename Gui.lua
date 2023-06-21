@@ -201,8 +201,8 @@ end
 -- classes
 
 local library = {} -- main
-local page = {}
-local section = {}
+local Page = {}
+local Section = {}
 
 do
 	library.__index = library
