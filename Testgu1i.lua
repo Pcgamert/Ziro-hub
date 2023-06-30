@@ -1,7 +1,6 @@
 -- kocmoc_
 -- v2.0.0
 -- locals
-local Player = game.Players.LocalPlayer.Character.Humanoid
 -- Instances:
 local c = Instance.new("UICorner")
 local Tab = Instance.new("TextButton")
@@ -52,7 +51,6 @@ Tab.Size = UDim2.new(0, 115, 0, 21)
 Tab.Text = TabName
 Tab.TextColor3 =  Color3.fromRGB(0,0,0)
 Tab.TextSize = 8.000
-Tab.MouseButton1Down:connect(function(a)
 end
 
 title.Parent = Main
