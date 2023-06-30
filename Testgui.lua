@@ -52,7 +52,11 @@ Tab.Size = UDim2.new(0, 115, 0, 21)
 Tab.Text = TabName
 Tab.TextColor3 =  Color3.fromRGB(0,0,0)
 Tab.TextSize = 8.000
+Tab.MouseButton1Down:connect(function(a)
+if a then
+  print("hello world")
 end
+end)
 
 title.Parent = Main
 title.BackgroundTransparency = 1
