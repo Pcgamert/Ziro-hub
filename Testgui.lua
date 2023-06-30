@@ -88,3 +88,9 @@ close.TextSize = 18.000
 close.MouseButton1Down:connect(function()
   ScreenGUI:Destroy()
 end)
+
+Tab.MouseButton1Down:connect(function(a)
+if a then
+  print("hello")
+end
+end)
