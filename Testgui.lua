@@ -88,4 +88,3 @@ close.TextSize = 18.000
 close.MouseButton1Down:connect(function()
   ScreenGUI:Destroy()
 end)
-
