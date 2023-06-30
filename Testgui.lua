@@ -2,7 +2,7 @@
 -- v2.0.0
 -- locals
 -- Instances:
-local TabList = Instance.neww("UIListLayout")
+local TabList = Instance.new("UIListLayout")
 local c = Instance.new("UICorner")
 local Tab = Instance.new("TextButton")
 local title = Instance.new("TextLabel")
