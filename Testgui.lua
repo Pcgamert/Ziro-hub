@@ -1,5 +1,7 @@
 -- kocmoc_
 -- v2.0.0
+-- locals
+local Player = game.Players.LocalPlayer.Character.Humanoid
 -- Instances:
 local c = Instance.new("UICorner")
 local Tab = Instance.new("TextButton")
