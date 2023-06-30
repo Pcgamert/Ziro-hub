@@ -2,6 +2,7 @@
 -- v2.0.0
 -- locals
 -- Instances:
+local TabList = Instance.neww("UIListLayout")
 local c = Instance.new("UICorner")
 local Tab = Instance.new("TextButton")
 local title = Instance.new("TextLabel")
@@ -65,6 +66,11 @@ title.TextSize = 14.000
 
 UIcorner.CornerRadius = UDim.new(1, 5)
 UIcorner.Parent = Tab
+
+TabList.Name = "TabList"
+TabList.Parent = Tab
+TabList.SortOrder = Enum.SortOrder.LayoutOrder
+TabList.Padding = UDim.new(0, 5)
 
 c.Parent = Main
 c.CornerRadius = UDim.new(0,20)
