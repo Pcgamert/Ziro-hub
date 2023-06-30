@@ -89,8 +89,3 @@ close.MouseButton1Down:connect(function()
   ScreenGUI:Destroy()
 end)
 
-Tab.MouseButton1Down:connect(function(a)
-if a then
-  print("hello world")
-end
-end)
