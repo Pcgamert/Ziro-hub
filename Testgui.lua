@@ -69,7 +69,6 @@ UIcorner.Parent = Tab
 
 TabList.Name = "TabList"
 TabList.Parent = Tab
-TabList.SortOrder = Enum.SortOrder.LayoutOrder
 TabList.Padding = UDim.new(0, 5)
 
 c.Parent = Main
