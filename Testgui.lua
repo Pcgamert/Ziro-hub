@@ -54,6 +54,16 @@ Tab.TextColor3 =  Color3.fromRGB(0,0,0)
 Tab.TextSize = 8.000
 end
 
+function NewButton(ButtonName)
+Button.Name = "pisun"
+Button.Parent = Main3
+Button.BackgroundColor3 = Color3.fromRGB(163, 173, 166)
+Button.Position = UDim2.new(0.181667981, 0, 0.0380807054, 0)
+Button.Size = UDim2.new(0, 120, 0, 21)
+Button.Text = ButtonName
+Button.TextColor3 = Color3.fromRGB(0,0,0)
+Tab.TextSize = 10
+end
 title.Parent = Main
 title.BackgroundTransparency = 1
 title.BackgroundColor3 = Color3.fromRGB(0,1,0)
