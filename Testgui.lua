@@ -55,23 +55,26 @@ Tab.TextColor3 =  Color3.fromRGB(0,0,0)
 Tab.TextSize = 8.000
 end
 Tab.MouseButton1Down:connect(function(a)
-if a then 
-  Button.Visible = true
-else a then
-  Button.Visible = false
+if Button.Visible == true then 
+ Button.Visible = false
+ else
+ Button.Visible = true
 end
 end)
-
 function NewButton(ButtonName)
 Button.Name = "pisun"
 Button.Parent = Main3
 Button.BackgroundColor3 = Color3.fromRGB(163, 173, 166)
-Button.Position = UDim2.new(0.181667981, 0, 0.0380807054, 0)
+Button.Position = UDim2.new(0.261667981, 0, 0.0380807054, 0)
 Button.Size = UDim2.new(0, 120, 0, 21)
 Button.Text = ButtonName
 Button.TextColor3 = Color3.fromRGB(0,0,0)
 Button.TextSize = 10
+Button.Visible = false
 end
+Button.MouseButton1Down:connect(function()
+x
+end)
 title.Parent = Main
 title.BackgroundTransparency = 1
 title.BackgroundColor3 = Color3.fromRGB(0,1,0)
