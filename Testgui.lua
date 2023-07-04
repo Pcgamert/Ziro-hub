@@ -73,7 +73,7 @@ Button.TextSize = 10
 Button.Visible = false
 end
 Button.MouseButton1Down:connect(function()
-x
+
 end)
 title.Parent = Main
 title.BackgroundTransparency = 1
