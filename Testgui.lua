@@ -67,10 +67,10 @@ Button.Name = "pisun"
 Button.Parent = Main3
 Button.BackgroundColor3 = Color3.fromRGB(163, 173, 166)
 Button.Position = UDim2.new(0.261667981, 0, 0.0380807054, 0)
-Button.Size = UDim2.new(0, 120, 0, 21)
+Button.Size = UDim2.new(0, 130, 0, 21)
 Button.Text = ButtonName
 Button.TextColor3 = Color3.fromRGB(0,0,0)
-Button.TextSize = 10
+Button.TextSize = 8
 Button.Visible = false
 end
 Button.MouseButton1Down:connect(function()
