@@ -2,6 +2,7 @@
 -- v2.0.0
 -- locals
 -- Instances:
+local UIcOrner = Instance.new("UICorner")
 local Button = Instance.new("TextButton")
 local TabList = Instance.new("UIListLayout")
 local c = Instance.new("UICorner")
@@ -88,9 +89,8 @@ title.TextSize = 14.000
 UIcorner.CornerRadius = UDim.new(1, 5)
 UIcorner.Parent = Tab
 
-TabList.Name = "TabList"
-TabList.Parent = Tab
-TabList.Padding = UDim.new(0, 5)
+UIcOrner.CornerRadius = UDim.new(1, 5)
+UIcOrner.Parent = Button
 
 c.Parent = Main
 c.CornerRadius = UDim.new(0,20)
