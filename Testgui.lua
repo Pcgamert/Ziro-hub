@@ -55,6 +55,7 @@ Tab.Text = TabName
 Tab.TextColor3 =  Color3.fromRGB(0,0,0)
 Tab.TextSize = 8.000
 else NewTab then
+local Tab = Instance.new("TextButton")
 Tab.Name = "Tab"
 Tab.Parent = Main2
 Tab.BackgroundColor3 = Color3.fromRGB(163, 173, 166)
