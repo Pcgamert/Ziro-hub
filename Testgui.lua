@@ -25,6 +25,7 @@ Main.BackgroundColor3 = Color3.fromRGB(0,1,0)
 Main.Position = UDim2.new(0.265741736, 0, 0.327073544, 0)
 Main.Size = UDim2.new(0, 449, 0, 252)
 Main.Active = true
+Main.Draggable = true
 
 Main2.Name = "Main2"
 Main2.Parent = Main
