@@ -25,7 +25,6 @@ Main.BackgroundColor3 = Color3.fromRGB(0,1,0)
 Main.Position = UDim2.new(0.265741736, 0, 0.327073544, 0)
 Main.Size = UDim2.new(0, 449, 0, 252)
 Main.Active = true
-Main.Draggable = true
 
 Main2.Name = "Main2"
 Main2.Parent = Main
@@ -34,7 +33,6 @@ Main2.BackgroundColor3 = Color3.fromRGB(0,1,0)
 Main2.Position = UDim2.new(0.0035741736, 0, 0.133073544, 0)
 Main2.Size = UDim2.new(0, 175, 0, 215.9)
 Main2.Active = true
-Main2.Draggable = false
 
 Main3.Name = "Main3"
 Main3.Parent = Main
@@ -43,7 +41,6 @@ Main3.BackgroundColor3 = Color3.fromRGB(0,1,0)
 Main3.Position = UDim2.new(0.0035741736, 178, 0.133073544, 0)
 Main3.Size = UDim2.new(0, 269, 0, 215.9)
 Main3.Active = true
-Main3.Draggable = false
 
 function NewTab(TabName)
 Tab.Name = "Tab"
@@ -64,6 +61,7 @@ title.Font = Enum.Font.SourceSans
 title.Text = "Ziro Hub v2 | kocmoc_"
 title.TextColor3 = Color3.fromRGB(255,255,255)
 title.TextSize = 14.000
+title.Draggable = true
 
 UIcorner.CornerRadius = UDim.new(1, 5)
 UIcorner.Parent = Tab
