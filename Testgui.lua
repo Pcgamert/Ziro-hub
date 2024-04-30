@@ -41,13 +41,6 @@ Main3.Position = UDim2.new(0.0035741736, 178, 0.133073544, 0)
 Main3.Size = UDim2.new(0, 269, 0, 215.9)
 Main3.Active = true
 
-Main4.Name = "Main4"
-Main4.Parent = Main
-Main4.BackgroundTransparency = 1
-Main4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Main4.Position = UDim2.new(0.0011667981, 0, -0.00229153037, 0)
-Main4.Size = UDim2.new(0, 269, 0, 215.9)
-
 title.Parent = Main
 title.BackgroundTransparency = 1
 title.BackgroundColor3 = Color3.fromRGB(0,1,0)
