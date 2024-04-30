@@ -13,11 +13,20 @@ local ScreenGUI = Instance.new("ScreenGui")
 local Main = Instance.new("Frame")
 local Main2 = Instance.new("ScrollingFrame")
 local Main3 = Instance.new("ScrollingFrame")
+local Main = Instance.new("Frame")
 local UIcorner = Instance.new("UICorner")
 -- gui parent
 ScreenGUI.Parent = game.CoreGui
 -- gui
 wait(2)
+
+Main4.Name = "Main4"
+Main4.Parent = Main
+Main4.BackgroundTransparency = 1
+Main4.BackgroundColor3 = Color3.fromRGB(0,1,0)
+Main4.Position = UDim2.new(0.0011667981, 0, -0.00229153037, 0)
+Main4.Size = UDim2.new(0, 269, 0, 215.9)
+
 
 Main.Name = "Main"
 Main.Parent = ScreenGUI
