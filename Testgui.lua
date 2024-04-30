@@ -46,10 +46,9 @@ Main3.Active = true
 Main4.Name = "Main4"
 Main4.Parent = Main
 Main4.BackgroundTransparency = 1
-Main4.BackgroundColor3 = Color3.fromRGB(0,1,0)
+Main4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Main4.Position = UDim2.new(0.0011667981, 0, -0.00229153037, 0)
 Main4.Size = UDim2.new(0, 269, 0, 215.9
-Main4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 
 function NewTab(TabName)
 Tab.Name = "Tab"
