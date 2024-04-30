@@ -21,7 +21,7 @@ ScreenGUI.Parent = game.CoreGui
 wait(2)
 
 Main4.Name = "Main4"
-Main4.Parent = Main
+Main4.Parent = title
 Main4.BackgroundTransparency = 1
 Main4.BackgroundColor3 = Color3.fromRGB(0,1,0)
 Main4.Position = UDim2.new(0.0011667981, 0, -0.00229153037, 0)
