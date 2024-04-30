@@ -13,6 +13,7 @@ local ScreenGUI = Instance.new("ScreenGui")
 local Main = Instance.new("Frame")
 local Main2 = Instance.new("ScrollingFrame")
 local Main3 = Instance.new("ScrollingFrame")
+local Main4 = Instance.new("Frame")
 local UIcorner = Instance.new("UICorner")
 -- gui parent
 ScreenGUI.Parent = game.CoreGui
@@ -21,7 +22,7 @@ wait(2)
 
 Main.Name = "Main"
 Main.Parent = ScreenGUI
-Main.BackgroundColor3 = Color3.fromRGB(0, 1, 0)
+Main.BackgroundColor3 = Color3.fromRGB(0,1,0)
 Main.Position = UDim2.new(0.265741736, 0, 0.327073544, 0)
 Main.Size = UDim2.new(0, 449, 0, 252)
 Main.Active = true
@@ -41,6 +42,13 @@ Main3.BackgroundColor3 = Color3.fromRGB(0,1,0)
 Main3.Position = UDim2.new(0.0035741736, 178, 0.133073544, 0)
 Main3.Size = UDim2.new(0, 269, 0, 215.9)
 Main3.Active = true
+
+Main4.Name = "Main4"
+Main4.Parent = Main
+Main4.BackgroundTransparency = 1
+Main4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Main4.Position = UDim2.new(0.0011667981, 0, -0.00229153037, 0)
+Main4.Size = UDim2.new(0, 269, 0, 215.9)
 
 title.Parent = Main
 title.BackgroundTransparency = 1
@@ -72,6 +80,43 @@ close.Font = Enum.Font.SourceSans
 close.Text = "X"
 close.TextColor3 = Color3.fromRGB(255,255,255)
 close.TextSize = 18.000
-close.MouseButton1Down:connect(function()
+close.MouseButton1Down:Connect(function()
   ScreenGUI:Destroy()
+end)
+
+-- Функция для определения общего размера всех дочерних объектов в списке
+local function GetTotalHeight(listLayout)
+    local totalHeight = 0
+    for _, child in ipairs(listLayout:GetChildren()) do
+        totalHeight = totalHeight + child.AbsoluteSize.Y
+    end
+    return totalHeight
+end
+
+-- Слушатель события изменения дочерних объектов в Main2
+Main2.ChildAdded:Connect(function()
+    -- Изменение размера Main2 в зависимости от общего размера всех дочерних объектов
+    local totalHeight = GetTotalHeight(TabList)
+    Main2.CanvasSize = UDim2.new(0, 0, 0, totalHeight)
+end)
+
+-- Слушатель события изменения дочерних объектов в Main2
+Main2.ChildRemoved:Connect(function()
+    -- Изменение размера Main2 в зависимости от общего размера всех дочерних объектов
+    local totalHeight = GetTotalHeight(TabList)
+    Main2.CanvasSize = UDim2.new(0, 0, 0, totalHeight)
+end)
+
+-- Слушатель события изменения дочерних объектов в Main3
+Main3.ChildAdded:Connect(function()
+    -- Изменение размера Main3 в зависимости от общего размера всех дочерних объектов
+    local totalHeight = GetTotalHeight(TabList)
+    Main3.CanvasSize = UDim2.new(0, 0, 0, totalHeight)
+end)
+
+-- Слушатель события изменения дочерних объектов в Main3
+Main3.ChildRemoved:Connect(function()
+    -- Изменение размера Main3 в зависимости от общего размера всех дочерних объектов
+    local totalHeight = GetTotalHeight(TabList)
+    Main3.CanvasSize = UDim2.new(0, 0, 0, totalHeight)
 end)
