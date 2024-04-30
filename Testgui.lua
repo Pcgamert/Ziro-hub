@@ -43,7 +43,6 @@ Main3.Position = UDim2.new(0.0035741736, 178, 0.133073544, 0)
 Main3.Size = UDim2.new(0, 269, 0, 215.9)
 Main3.Active = true
 
-function NewTab(TabName)
 Tab.Name = "Tab"
 Tab.Parent = Main2
 Tab.BackgroundColor3 = Color3.fromRGB(163, 173, 166)
@@ -52,7 +51,7 @@ Tab.Size = UDim2.new(0, 115, 0, 21)
 Tab.Text = TabName
 Tab.TextColor3 =  Color3.fromRGB(0,0,0)
 Tab.TextSize = 8.000
-end
+
 title.Parent = Main
 title.BackgroundTransparency = 1
 title.BackgroundColor3 = Color3.fromRGB(0,1,0)
