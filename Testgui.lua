@@ -25,7 +25,6 @@ Main.BackgroundColor3 = Color3.fromRGB(0, 1, 0)
 Main.Position = UDim2.new(0.265741736, 0, 0.327073544, 0)
 Main.Size = UDim2.new(0, 449, 0, 252)
 Main.Active = true
-Main.Draggable = true
 
 Main2.Name = "Main2"
 Main2.Parent = Main
@@ -42,15 +41,6 @@ Main3.BackgroundColor3 = Color3.fromRGB(0,1,0)
 Main3.Position = UDim2.new(0.0035741736, 178, 0.133073544, 0)
 Main3.Size = UDim2.new(0, 269, 0, 215.9)
 Main3.Active = true
-
-Tab.Name = "Tab"
-Tab.Parent = Main2
-Tab.BackgroundColor3 = Color3.fromRGB(163, 173, 166)
-Tab.Position = UDim2.new(0.141667981, 0, 0.0380807054, 0)
-Tab.Size = UDim2.new(0, 115, 0, 21)
-Tab.Text = TabName
-Tab.TextColor3 =  Color3.fromRGB(0,0,0)
-Tab.TextSize = 8.000
 
 title.Parent = Main
 title.BackgroundTransparency = 1
