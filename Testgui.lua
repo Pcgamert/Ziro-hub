@@ -13,6 +13,7 @@ local ScreenGUI = Instance.new("ScreenGui")
 local Main = Instance.new("Frame")
 local Main2 = Instance.new("ScrollingFrame")
 local Main3 = Instance.new("ScrollingFrame")
+local Main4 = Instance.new("Frame")
 local UIcorner = Instance.new("UICorner")
 -- gui parent
 ScreenGUI.Parent = game.CoreGui
