@@ -1,4 +1,4 @@
--- ZiroHubLibrary.lua
+-- ZiroHubLibrary.lua (скрипт, который ты будешь загружать через loadstring)
 
 local ZiroHub = {}
 
@@ -115,14 +115,17 @@ ZiroHub.createSlider = function(parent, text, position, size, minValue, maxValue
     label.TextColor3 = Color3.fromRGB(255, 255, 255)
     label.Size = UDim2.new(1, 0, 0, 20)
 
-    sliderFrame.MouseMove:Connect(function()
-        local mouseX = game:GetService("Players").LocalPlayer:GetMouse().X
-        local newSliderSize = math.clamp(mouseX - sliderFrame.AbsolutePosition.X, 0, sliderFrame.AbsoluteSize.X)
-        slider.Size = UDim2.new(0, newSliderSize, 0, 20)
+    -- Обработка изменения слайдера с использованием InputChanged
+    sliderFrame.InputChanged:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseMovement then
+            local mouseX = input.Position.X
+            local newSliderSize = math.clamp(mouseX - sliderFrame.AbsolutePosition.X, 0, sliderFrame.AbsoluteSize.X)
+            slider.Size = UDim2.new(0, newSliderSize, 0, 20)
 
-        -- Расчёт значения слайдера
-        local value = math.floor(minValue + (newSliderSize / sliderFrame.AbsoluteSize.X) * (maxValue - minValue))
-        callback(value)
+            -- Расчёт значения слайдера
+            local value = math.floor(minValue + (newSliderSize / sliderFrame.AbsoluteSize.X) * (maxValue - minValue))
+            callback(value)
+        end
     end)
 
     return sliderFrame
