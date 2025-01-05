@@ -18,13 +18,27 @@ ZiroHub.createGUI = function()
     local Tabs = {}
     local TabContent = {}
 
+    -- Создаем второй фрейм для кнопок с UIListLayout
+    local ButtonFrame = Instance.new("Frame")
+    ButtonFrame.Parent = Main
+    ButtonFrame.Position = UDim2.new(0.0035741736, 0, 0.133073544, 0)  -- Позиция для второго фрейма
+    ButtonFrame.Size = UDim2.new(0, 175, 0, 215.9)
+    ButtonFrame.BackgroundTransparency = 1
+    ButtonFrame.Active = true
+
+    -- UIListLayout для кнопок
+    local buttonLayout = Instance.new("UIListLayout")
+    buttonLayout.Parent = ButtonFrame
+    buttonLayout.FillDirection = Enum.FillDirection.Vertical
+    buttonLayout.SortOrder = Enum.SortOrder.LayoutOrder
+    buttonLayout.Padding = UDim.new(0, 10)  -- Устанавливаем отступы между кнопками
+
     -- Функция для создания вкладки
-    local function createTab(name, posX)
+    local function createTab(name)
         local tab = Instance.new("TextButton")
         tab.Parent = Main
         tab.Text = name
         tab.Size = UDim2.new(0, 100, 0, 40)
-        tab.Position = UDim2.new(0, posX, 0, 0)
         tab.TextColor3 = Color3.fromRGB(255, 255, 255)
         tab.BackgroundColor3 = Color3.fromRGB(0, 1, 0)
         tab.Name = name
@@ -42,8 +56,8 @@ ZiroHub.createGUI = function()
     end
 
     -- Создаем вкладки
-    local tab1, content1 = createTab("Tab 1", 0)
-    local tab2, content2 = createTab("Tab 2", 100)
+    local tab1, content1 = createTab("Tab 1")
+    local tab2, content2 = createTab("Tab 2")
 
     -- Функция для переключения вкладок
     local function switchTab(tabIndex)
@@ -70,12 +84,11 @@ ZiroHub.createGUI = function()
 end
 
 -- Функция для создания кнопки
-ZiroHub.createButton = function(parent, text, allback)
+ZiroHub.createButton = function(parent, text, callback)
     local button = Instance.new("TextButton")
     button.Parent = parent
     button.Text = text
-    button.Size = size
-    button.Position = position
+    button.Size = UDim2.new(0, 100, 0, 40)  -- Размер кнопки
     button.TextColor3 = Color3.fromRGB(255, 255, 255)
     button.BackgroundColor3 = Color3.fromRGB(0, 1, 0)
 
