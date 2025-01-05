@@ -1,8 +1,7 @@
--- main.lua (Ваш основной код, который должен быть вызван через loadstring)
-
+-- ZiroHub.lua
 local ZiroHub = {}
 
--- Создание GUI через loadstring
+-- Функция для создания GUI
 ZiroHub.createGUI = function()
     -- Создаем главный экран и GUI элементы
     local ScreenGUI = Instance.new("ScreenGui")
@@ -15,46 +14,62 @@ ZiroHub.createGUI = function()
     Main.Size = UDim2.new(0, 449, 0, 252)
     Main.Active = true
 
-    local Tab1 = Instance.new("TextButton")
-    Tab1.Parent = Main
-    Tab1.Text = "Tab 1"
-    Tab1.Size = UDim2.new(0, 100, 0, 40)
-    Tab1.Position = UDim2.new(0, 0, 0, 0)
+    -- Создание вкладок
+    local Tabs = {}
+    local TabContent = {}
 
-    local Tab2 = Instance.new("TextButton")
-    Tab2.Parent = Main
-    Tab2.Text = "Tab 2"
-    Tab2.Size = UDim2.new(0, 100, 0, 40)
-    Tab2.Position = UDim2.new(0, 100, 0, 0)
+    -- Функция для создания вкладки
+    local function createTab(name, posX)
+        local tab = Instance.new("TextButton")
+        tab.Parent = Main
+        tab.Text = name
+        tab.Size = UDim2.new(0, 100, 0, 40)
+        tab.Position = UDim2.new(0, posX, 0, 0)
+        tab.TextColor3 = Color3.fromRGB(255, 255, 255)
+        tab.BackgroundColor3 = Color3.fromRGB(0, 1, 0)
+        tab.Name = name
+        table.insert(Tabs, tab)
+        
+        local content = Instance.new("Frame")
+        content.Parent = Main
+        content.Size = UDim2.new(0, 449, 0, 212)
+        content.Position = UDim2.new(0, 0, 0, 40)
+        content.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        content.Visible = false
+        table.insert(TabContent, content)
 
-    -- Контент для вкладок
-    local TabContent1 = Instance.new("Frame")
-    TabContent1.Parent = Main
-    TabContent1.Size = UDim2.new(0, 449, 0, 212)
-    TabContent1.Position = UDim2.new(0, 0, 0, 40)
-    TabContent1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    TabContent1.Visible = true
+        return tab, content
+    end
 
-    local TabContent2 = Instance.new("Frame")
-    TabContent2.Parent = Main
-    TabContent2.Size = UDim2.new(0, 449, 0, 212)
-    TabContent2.Position = UDim2.new(0, 0, 0, 40)
-    TabContent2.BackgroundColor3 = Color3.fromRGB(200, 200, 200)
-    TabContent2.Visible = false
+    -- Создаем вкладки
+    local tab1, content1 = createTab("Tab 1", 0)
+    local tab2, content2 = createTab("Tab 2", 100)
 
-    -- Переключение между вкладками
-    Tab1.MouseButton1Click:Connect(function()
-        TabContent1.Visible = true
-        TabContent2.Visible = false
+    -- Функция для переключения вкладок
+    local function switchTab(tabIndex)
+        for i, tab in ipairs(Tabs) do
+            if i == tabIndex then
+                TabContent[i].Visible = true
+            else
+                TabContent[i].Visible = false
+            end
+        end
+    end
+
+    -- Подключение к вкладкам
+    tab1.MouseButton1Click:Connect(function()
+        switchTab(1)
     end)
 
-    Tab2.MouseButton1Click:Connect(function()
-        TabContent1.Visible = false
-        TabContent2.Visible = true
+    tab2.MouseButton1Click:Connect(function()
+        switchTab(2)
     end)
+
+    -- Переключаем первую вкладку по умолчанию
+    switchTab(1)
 end
 
--- Создание кнопки
+-- Функция для создания кнопки
 ZiroHub.createButton = function(parent, text, position, size, callback)
     local button = Instance.new("TextButton")
     button.Parent = parent
