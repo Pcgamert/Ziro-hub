@@ -5,7 +5,7 @@ local ZiroHub = {}
 ZiroHub.createGUI = function()
     -- Создаем главный экран и GUI элементы
     local ScreenGUI = Instance.new("ScreenGui")
-    ScreenGUI.Parent = game.CoreGui
+    ScreenGUI.Parent = game:GetService("CoreGui")  -- используем GetService вместо CoreGui непосредственно
 
     local Main = Instance.new("Frame")
     Main.Parent = ScreenGUI
@@ -70,7 +70,7 @@ ZiroHub.createGUI = function()
 end
 
 -- Функция для создания кнопки
-ZiroHub.createButton = function(parent, text, position, size, callback)
+ZiroHub.createButton = function(parent, text, allback)
     local button = Instance.new("TextButton")
     button.Parent = parent
     button.Text = text
@@ -79,6 +79,7 @@ ZiroHub.createButton = function(parent, text, position, size, callback)
     button.TextColor3 = Color3.fromRGB(255, 255, 255)
     button.BackgroundColor3 = Color3.fromRGB(0, 1, 0)
 
+    -- Правильное использование MouseButton1Click
     button.MouseButton1Click:Connect(callback)
 end
 
