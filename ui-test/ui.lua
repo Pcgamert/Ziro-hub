@@ -1,134 +1,70 @@
--- ZiroHubLibrary.lua (скрипт, который ты будешь загружать через loadstring)
+-- main.lua (Ваш основной код, который должен быть вызван через loadstring)
 
 local ZiroHub = {}
 
--- Функция для создания основного UI
-ZiroHub.createUI = function()
-    -- Создаём объекты UI
+-- Создание GUI через loadstring
+ZiroHub.createGUI = function()
+    -- Создаем главный экран и GUI элементы
     local ScreenGUI = Instance.new("ScreenGui")
-    local Main = Instance.new("Frame")
-    local Main2 = Instance.new("ScrollingFrame")
-    local Main3 = Instance.new("ScrollingFrame")
-    local title = Instance.new("TextLabel")
-    local close = Instance.new("TextButton")
-    local UIcOrner = Instance.new("UICorner")
-    local c = Instance.new("UICorner")
-
-    -- Родитель для GUI
     ScreenGUI.Parent = game.CoreGui
 
-    -- Основной Frame
-    Main.Name = "Main"
+    local Main = Instance.new("Frame")
     Main.Parent = ScreenGUI
     Main.BackgroundColor3 = Color3.fromRGB(0, 1, 0)
     Main.Position = UDim2.new(0.265741736, 0, 0.327073544, 0)
     Main.Size = UDim2.new(0, 449, 0, 252)
     Main.Active = true
 
-    -- Scrollable Frame 1
-    Main2.Name = "Main2"
-    Main2.Parent = Main
-    Main2.BackgroundTransparency = 1
-    Main2.BackgroundColor3 = Color3.fromRGB(0, 1, 0)
-    Main2.Position = UDim2.new(0.0035741736, 0, 0.133073544, 0)
-    Main2.Size = UDim2.new(0, 175, 0, 215.9)
-    Main2.Active = true
+    local Tab1 = Instance.new("TextButton")
+    Tab1.Parent = Main
+    Tab1.Text = "Tab 1"
+    Tab1.Size = UDim2.new(0, 100, 0, 40)
+    Tab1.Position = UDim2.new(0, 0, 0, 0)
 
-    -- Scrollable Frame 2
-    Main3.Name = "Main3"
-    Main3.Parent = Main
-    Main3.BackgroundTransparency = 1
-    Main3.BackgroundColor3 = Color3.fromRGB(0, 1, 0)
-    Main3.Position = UDim2.new(0.0035741736, 178, 0.133073544, 0)
-    Main3.Size = UDim2.new(0, 269, 0, 215.9)
-    Main3.Active = true
+    local Tab2 = Instance.new("TextButton")
+    Tab2.Parent = Main
+    Tab2.Text = "Tab 2"
+    Tab2.Size = UDim2.new(0, 100, 0, 40)
+    Tab2.Position = UDim2.new(0, 100, 0, 0)
 
-    -- Заголовок
-    title.Parent = Main
-    title.BackgroundTransparency = 1
-    title.BackgroundColor3 = Color3.fromRGB(0, 1, 0)
-    title.Position = UDim2.new(0.0011667981, 0, -0.00229153037, 0)
-    title.Size = UDim2.new(0, 449, 0, 34)
-    title.Font = Enum.Font.SourceSans
-    title.Text = "Ziro Hub v2 | kocmoc_"
-    title.TextColor3 = Color3.fromRGB(255, 255, 255)
-    title.TextSize = 14.000
-    title.Draggable = true
+    -- Контент для вкладок
+    local TabContent1 = Instance.new("Frame")
+    TabContent1.Parent = Main
+    TabContent1.Size = UDim2.new(0, 449, 0, 212)
+    TabContent1.Position = UDim2.new(0, 0, 0, 40)
+    TabContent1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    TabContent1.Visible = true
 
-    -- UI Corner для Tab
-    UIcOrner.CornerRadius = UDim.new(1, 5)
+    local TabContent2 = Instance.new("Frame")
+    TabContent2.Parent = Main
+    TabContent2.Size = UDim2.new(0, 449, 0, 212)
+    TabContent2.Position = UDim2.new(0, 0, 0, 40)
+    TabContent2.BackgroundColor3 = Color3.fromRGB(200, 200, 200)
+    TabContent2.Visible = false
 
-    -- UI Corner для кнопки
-    c.Parent = Main
-    c.CornerRadius = UDim.new(0, 20)
-
-    -- Кнопка закрытия
-    close.Name = "close"
-    close.Parent = Main
-    close.BackgroundTransparency = 1
-    close.BackgroundColor3 = Color3.fromRGB(0, 1, 0)
-    close.Position = UDim2.new(0.92602824, 0, -0.00319522619, 0)
-    close.Size = UDim2.new(0, 34, 0, 33)
-    close.Font = Enum.Font.SourceSans
-    close.Text = "X"
-    close.TextColor3 = Color3.fromRGB(255, 255, 255)
-    close.TextSize = 18.000
-    close.MouseButton1Down:Connect(function()
-        ScreenGUI:Destroy()
+    -- Переключение между вкладками
+    Tab1.MouseButton1Click:Connect(function()
+        TabContent1.Visible = true
+        TabContent2.Visible = false
     end)
 
-    -- Возвращаем объект UI для дальнейшей настройки
-    return ScreenGUI
+    Tab2.MouseButton1Click:Connect(function()
+        TabContent1.Visible = false
+        TabContent2.Visible = true
+    end)
 end
 
--- Функция для создания кнопки
+-- Создание кнопки
 ZiroHub.createButton = function(parent, text, position, size, callback)
-    local Button = Instance.new("TextButton")
-    Button.Parent = parent
-    Button.Text = text
-    Button.Position = position
-    Button.Size = size
-    Button.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
-    Button.Font = Enum.Font.SourceSans
-    Button.TextSize = 20
-    Button.MouseButton1Click:Connect(callback)
-    
-    return Button
-end
+    local button = Instance.new("TextButton")
+    button.Parent = parent
+    button.Text = text
+    button.Size = size
+    button.Position = position
+    button.TextColor3 = Color3.fromRGB(255, 255, 255)
+    button.BackgroundColor3 = Color3.fromRGB(0, 1, 0)
 
--- Функция для создания слайдера
-ZiroHub.createSlider = function(parent, text, position, size, minValue, maxValue, defaultValue, callback)
-    local sliderFrame = Instance.new("Frame")
-    sliderFrame.Parent = parent
-    sliderFrame.Position = position
-    sliderFrame.Size = size
-    sliderFrame.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
-    
-    local slider = Instance.new("Frame")
-    slider.Parent = sliderFrame
-    slider.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
-    slider.Size = UDim2.new(0, (defaultValue - minValue) / (maxValue - minValue), 0, 20)
-    
-    local label = Instance.new("TextLabel")
-    label.Parent = sliderFrame
-    label.Text = text
-    label.TextColor3 = Color3.fromRGB(255, 255, 255)
-    label.Size = UDim2.new(1, 0, 0, 20)
-
-    -- Обработка изменения слайдера с использованием InputChanged
-    sliderFrame.InputChanged:Connect(function(input)
-        if input.UserInputType == Enum.UserInputType.MouseMovement then
-            local mouseX = input.Position.X
-            local newSliderSize = math.clamp(mouseX - sliderFrame.AbsolutePosition.X, 0, sliderFrame.AbsoluteSize.X)
-            slider.Size = UDim2.new(0, newSliderSize, 0, 20)
-
-            -- Расчёт значения слайдера
-            local value = math.floor(minValue + (newSliderSize / sliderFrame.AbsoluteSize.X) * (maxValue - minValue))
-            callback(value)
-        end
-    end)
-
-    return sliderFrame
+    button.MouseButton1Click:Connect(callback)
 end
 
 return ZiroHub
