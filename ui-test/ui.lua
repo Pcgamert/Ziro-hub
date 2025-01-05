@@ -2,175 +2,130 @@
 
 local ZiroHub = {}
 
--- Функция для создания GUI
-function ZiroHub.CreateGUI()
-    -- GUI элементы
+-- Функция для создания основного UI
+ZiroHub.createUI = function()
+    -- Создаём объекты UI
     local ScreenGUI = Instance.new("ScreenGui")
+    local Main = Instance.new("Frame")
+    local Main2 = Instance.new("ScrollingFrame")
+    local Main3 = Instance.new("ScrollingFrame")
+    local title = Instance.new("TextLabel")
+    local close = Instance.new("TextButton")
+    local UIcOrner = Instance.new("UICorner")
+    local c = Instance.new("UICorner")
+
+    -- Родитель для GUI
     ScreenGUI.Parent = game.CoreGui
 
-    local Main = Instance.new("Frame")
+    -- Основной Frame
+    Main.Name = "Main"
     Main.Parent = ScreenGUI
     Main.BackgroundColor3 = Color3.fromRGB(0, 1, 0)
-    Main.Position = UDim2.new(0.265, 0, 0.327, 0)
+    Main.Position = UDim2.new(0.265741736, 0, 0.327073544, 0)
     Main.Size = UDim2.new(0, 449, 0, 252)
     Main.Active = true
 
-    -- Панель для кнопок табов
-    local TabContainer = Instance.new("Frame")
-    TabContainer.Parent = Main
-    TabContainer.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
-    TabContainer.Size = UDim2.new(0, 449, 0, 50)
-    TabContainer.Position = UDim2.new(0, 0, 0, 0)
-
-    -- Основные элементы (Main2 и Main3)
-    local Main2 = Instance.new("ScrollingFrame")
+    -- Scrollable Frame 1
+    Main2.Name = "Main2"
     Main2.Parent = Main
     Main2.BackgroundTransparency = 1
+    Main2.BackgroundColor3 = Color3.fromRGB(0, 1, 0)
+    Main2.Position = UDim2.new(0.0035741736, 0, 0.133073544, 0)
     Main2.Size = UDim2.new(0, 175, 0, 215.9)
-    Main2.Position = UDim2.new(0.0035, 0, 0.133, 0)
     Main2.Active = true
 
-    local Main3 = Instance.new("ScrollingFrame")
+    -- Scrollable Frame 2
+    Main3.Name = "Main3"
     Main3.Parent = Main
     Main3.BackgroundTransparency = 1
+    Main3.BackgroundColor3 = Color3.fromRGB(0, 1, 0)
+    Main3.Position = UDim2.new(0.0035741736, 178, 0.133073544, 0)
     Main3.Size = UDim2.new(0, 269, 0, 215.9)
-    Main3.Position = UDim2.new(0.0035, 178, 0.133, 0)
     Main3.Active = true
 
     -- Заголовок
-    local title = Instance.new("TextLabel")
     title.Parent = Main
     title.BackgroundTransparency = 1
+    title.BackgroundColor3 = Color3.fromRGB(0, 1, 0)
+    title.Position = UDim2.new(0.0011667981, 0, -0.00229153037, 0)
     title.Size = UDim2.new(0, 449, 0, 34)
     title.Font = Enum.Font.SourceSans
     title.Text = "Ziro Hub v2 | kocmoc_"
     title.TextColor3 = Color3.fromRGB(255, 255, 255)
-    title.TextSize = 14
+    title.TextSize = 14.000
     title.Draggable = true
 
+    -- UI Corner для Tab
+    UIcOrner.CornerRadius = UDim.new(1, 5)
+
+    -- UI Corner для кнопки
+    c.Parent = Main
+    c.CornerRadius = UDim.new(0, 20)
+
     -- Кнопка закрытия
-    local close = Instance.new("TextButton")
+    close.Name = "close"
     close.Parent = Main
     close.BackgroundTransparency = 1
+    close.BackgroundColor3 = Color3.fromRGB(0, 1, 0)
+    close.Position = UDim2.new(0.92602824, 0, -0.00319522619, 0)
     close.Size = UDim2.new(0, 34, 0, 33)
-    close.Position = UDim2.new(0.926, 0, -0.003, 0)
+    close.Font = Enum.Font.SourceSans
     close.Text = "X"
     close.TextColor3 = Color3.fromRGB(255, 255, 255)
-    close.TextSize = 18
-    close.MouseButton1Click:Connect(function()
+    close.TextSize = 18.000
+    close.MouseButton1Down:Connect(function()
         ScreenGUI:Destroy()
     end)
 
+    -- Возвращаем объект UI для дальнейшей настройки
     return ScreenGUI
 end
 
 -- Функция для создания кнопки
-function ZiroHub.createButton(parent, text, position, size, onClick)
-    local button = Instance.new("TextButton")
-    button.Parent = parent
-    button.Text = text
-    button.Position = position
-    button.Size = size
-    button.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
-    button.Font = Enum.Font.SourceSans
-    button.TextSize = 14
-    button.TextColor3 = Color3.fromRGB(255, 255, 255)
-    button.MouseButton1Click:Connect(onClick)
-    return button
+ZiroHub.createButton = function(parent, text, position, size, callback)
+    local Button = Instance.new("TextButton")
+    Button.Parent = parent
+    Button.Text = text
+    Button.Position = position
+    Button.Size = size
+    Button.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
+    Button.Font = Enum.Font.SourceSans
+    Button.TextSize = 20
+    Button.MouseButton1Click:Connect(callback)
+    
+    return Button
 end
 
 -- Функция для создания слайдера
-function ZiroHub.createSlider(parent, text, position, size, min, max, defaultValue, onChanged)
+ZiroHub.createSlider = function(parent, text, position, size, minValue, maxValue, defaultValue, callback)
+    local sliderFrame = Instance.new("Frame")
+    sliderFrame.Parent = parent
+    sliderFrame.Position = position
+    sliderFrame.Size = size
+    sliderFrame.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+    
     local slider = Instance.new("Frame")
-    slider.Parent = parent
-    slider.Size = size
-    slider.Position = position
-    slider.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
+    slider.Parent = sliderFrame
+    slider.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
+    slider.Size = UDim2.new(0, (defaultValue - minValue) / (maxValue - minValue), 0, 20)
+    
+    local label = Instance.new("TextLabel")
+    label.Parent = sliderFrame
+    label.Text = text
+    label.TextColor3 = Color3.fromRGB(255, 255, 255)
+    label.Size = UDim2.new(1, 0, 0, 20)
 
-    local sliderLabel = Instance.new("TextLabel")
-    sliderLabel.Parent = slider
-    sliderLabel.Text = text
-    sliderLabel.Size = UDim2.new(1, 0, 0, 20)
-    sliderLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+    sliderFrame.MouseMove:Connect(function()
+        local mouseX = game:GetService("Players").LocalPlayer:GetMouse().X
+        local newSliderSize = math.clamp(mouseX - sliderFrame.AbsolutePosition.X, 0, sliderFrame.AbsoluteSize.X)
+        slider.Size = UDim2.new(0, newSliderSize, 0, 20)
 
-    local sliderBar = Instance.new("Frame")
-    sliderBar.Parent = slider
-    sliderBar.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
-    sliderBar.Size = UDim2.new(0, (defaultValue - min) / (max - min) * size.X.Offset, 0, 10)
-
-    local sliderButton = Instance.new("Frame")
-    sliderButton.Parent = sliderBar
-    sliderButton.Size = UDim2.new(0, 10, 1, 0)
-    sliderButton.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
-    sliderButton.Draggable = true
-
-    sliderButton.MouseMoved:Connect(function(_, y)
-        -- Получаем новое положение слайдера
-        local newX = math.clamp(sliderButton.Position.X.Offset + _, 0, size.X.Offset)
-        sliderButton.Position = UDim2.new(0, newX, 0, 0)
-        sliderBar.Size = UDim2.new(0, newX, 0, 10)
-        local value = min + (newX / size.X.Offset) * (max - min)
-        onChanged(value)
+        -- Расчёт значения слайдера
+        local value = math.floor(minValue + (newSliderSize / sliderFrame.AbsoluteSize.X) * (maxValue - minValue))
+        callback(value)
     end)
 
-    return slider
-end
-
--- Функция для создания выпадающего списка
-function ZiroHub.createDropdown(parent, text, position, size, options, onSelected)
-    local dropdown = Instance.new("Frame")
-    dropdown.Parent = parent
-    dropdown.Size = size
-    dropdown.Position = position
-    dropdown.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
-
-    local dropdownLabel = Instance.new("TextLabel")
-    dropdownLabel.Parent = dropdown
-    dropdownLabel.Text = text
-    dropdownLabel.Size = UDim2.new(1, 0, 0, 20)
-    dropdownLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-
-    local dropdownButton = Instance.new("TextButton")
-    dropdownButton.Parent = dropdown
-    dropdownButton.Size = UDim2.new(1, 0, 0, 30)
-    dropdownButton.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
-    dropdownButton.Text = "Select"
-    dropdownButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-
-    local optionsList = Instance.new("Frame")
-    optionsList.Parent = dropdown
-    optionsList.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
-    optionsList.Position = UDim2.new(0, 0, 0, 30)
-    optionsList.Size = UDim2.new(0, 0, 0, 0)
-
-    for _, option in ipairs(options) do
-        local optionButton = Instance.new("TextButton")
-        optionButton.Parent = optionsList
-        optionButton.Size = UDim2.new(1, 0, 0, 30)
-        optionButton.Text = option
-        optionButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-        optionButton.BackgroundColor3 = Color3.fromRGB(0, 150, 0)
-        optionButton.MouseButton1Click:Connect(function()
-            onSelected(option)
-            optionsList.Size = UDim2.new(0, 0, 0, 0)
-            dropdownButton.Text = option
-        end)
-    end
-
-    return dropdown
-end
-
--- Функция для отображения текстовой линии
-function ZiroHub.createLineText(parent, text, position)
-    local lineText = Instance.new("TextLabel")
-    lineText.Parent = parent
-    lineText.Text = text
-    lineText.Position = position
-    lineText.Size = UDim2.new(1, 0, 0, 20)
-    lineText.TextColor3 = Color3.fromRGB(255, 255, 255)
-    lineText.BackgroundTransparency = 1
-    lineText.Font = Enum.Font.SourceSans
-    lineText.TextSize = 14
+    return sliderFrame
 end
 
 return ZiroHub
