@@ -1,4 +1,4 @@
 function FAO(path, name)
-patch:GetDescendants(name)
-print(:GetFullPath())
+local part = path:GetDescendants(name)
+print(part:GetFullPath())
 end
