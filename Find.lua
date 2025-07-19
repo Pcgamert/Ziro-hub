@@ -1,4 +1,7 @@
 function FAO(path, name)
-local part = path:GetDescendants(name)
-print(part:GetFullPath())
+	for _, descendant in ipairs(path:GetDescendants()) do
+		if descendant.Name == name then
+			print(descendant:GetFullName())
+		end
+	end
 end
