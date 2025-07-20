@@ -11,5 +11,12 @@ if path[attribute] ~= nil then
 path[attribute] = value
 else
 path:SetAttribute(attribute, value)
+return attribute, value
 	end
+end
+
+function CAP(obj, new)
+local clone = obj:Clone()
+clone.Parent = new
+return clone
 end
