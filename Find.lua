@@ -7,5 +7,7 @@ function FAO(path, name)
 end
 
 function SA(path, attribute, value)
-
+if path then
+path:SetAttribute(attribute, value)
+	end
 end
