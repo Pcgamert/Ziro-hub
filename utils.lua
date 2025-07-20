@@ -15,7 +15,7 @@ return attribute, value
 	end
 end
 
-function CAP(obj, new)
+function CAO(obj, new)
 local clone = obj:Clone()
 clone.Parent = new
 return clone
