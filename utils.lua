@@ -7,9 +7,9 @@ function FAO(path, name)
 end
 
 function SA(path, attribute, value)
-if path[attribute] then
+if path[attribute] ~= nil then
 path[attribute] = value
-elseif not path[attribute] then
+else
 path:SetAttribute(attribute, value)
 	end
 end
