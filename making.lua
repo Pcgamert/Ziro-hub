@@ -22,46 +22,28 @@ weld.Parent = hitbox
 local npcsInHitbox = {}
 
 local damage = 15
-local damageInterval = 0.2 -- наносить урон каждые 0.2 сек
+local damageInterval = 0.2
 
--- Репликейтед сторедж и ремоут на монеты
-local repl = game:GetService("ReplicatedStorage")
-local remote = repl:FindFirstChild("MiscRemotes") and repl.MiscRemotes:FindFirstChild("UpdateClientCoins")
-
--- Добавляем NPC в таблицу при касании
 hitbox.Touched:Connect(function(part)
-    local npcModel = part:FindFirstAncestorOfClass("Model")
-    if npcModel and npcModel.Parent == npcFolder then
-        npcsInHitbox[npcModel] = true
-    end
+	local npcModel = part:FindFirstAncestorOfClass("Model")
+	if npcModel and npcModel.Parent == npcFolder then
+		npcsInHitbox[npcModel] = true
+	end
 end)
 
--- Удаляем NPC из таблицы при выходе из хитбокса
 hitbox.TouchEnded:Connect(function(part)
-    local npcModel = part:FindFirstAncestorOfClass("Model")
-    if npcModel and npcModel.Parent == npcFolder then
-        npcsInHitbox[npcModel] = nil
-    end
+	local npcModel = part:FindFirstAncestorOfClass("Model")
+	if npcModel and npcModel.Parent == npcFolder then
+		npcsInHitbox[npcModel] = nil
+	end
 end)
 
--- Цикл наносит урон всем NPC в таблице
 while true do
-    for npcModel, _ in pairs(npcsInHitbox) do
-        local humanoid = npcModel:FindFirstChildOfClass("Humanoid")
-        if humanoid and humanoid.Health > 0 then
-            humanoid.Health = math.max(humanoid.Health - damage)
-        elseif humanoid and humanoid.Health <= 0 then
-            -- NPC мёртв, даём награду
-            npcsInHitbox[npcModel] = nil
-            if remote and remote:IsA("RemoteEvent") then
-                -- Отправляем 50 монет (можешь изменить) и позицию NPC
-                pcall(function()
-                    remote:FireServer(50, npcModel:GetPivot().Position)
-                end)
-            end
-        end
-    end
-    task.wait(damageInterval)
+	for npcModel, _ in pairs(npcsInHitbox) do
+		local humanoid = npcModel:FindFirstChildOfClass("Humanoid")
+		if humanoid and humanoid.Health > 0 then
+			humanoid:TakeDamage(damage)
+		end
+	end
+	task.wait(damageInterval)
 end
-
---
