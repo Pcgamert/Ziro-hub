@@ -2,22 +2,40 @@ local scrg = Instance.new("ScreenGui")
 scrg.Name = "ScreenGui"
 scrg.Parent = game.CoreGui
 
+ local cs = Instance.new('Frame')
+ cs.Name = "Collapse"
+ cs.Parent = scrg
+
  local main = Instance.new("Frame")
  main.Name = "Main"
  main.Size = UDim2.new(0,450,0,300)
- main.Position = UDim2.new(0.300,0,0,150)
+ main.Position = UDim2.new(0,3,0,150)
  main.BackgroundColor3 = Color3.fromRGB(33, 33, 33)
- main.Parent = scrg
+ main.Parent = cs
+ main.Visible = true
 
  local x = Instance.new("TextButton")
  x.Name = "Close"
  x.Size = UDim2.new(0,23,0,23)
- x.Position = UDim2.new(0,426,0,1)
- x.Parent = main
+ x.Position = UDim2.new(0,429,0,154)
+ x.Parent = cs
  x.Text = 'X'
  x.TextColor3 = Color3.fromRGB(255,255,255)
  x.BackgroundColor3 = Color3.fromRGB(33, 33, 33)
+ x.ZIndex = 2
  x.AutoButtonColor = false
+ 
+ local mn = Instance.new("TextButton")
+ mn.Name = "Close"
+ mn.Size = UDim2.new(0,23,0,23)
+ mn.Position = UDim2.new(0,406,0,153)
+ mn.Parent = cs
+ mn.Text = "▂"
+ mn.TextSize = 6
+ mn.TextColor3 = Color3.fromRGB(255,255,255)
+ mn.BackgroundColor3 = Color3.fromRGB(33, 33, 33)
+ mn.ZIndex = 2
+ mn.AutoButtonColor = false
 
  local line = Instance.new("Frame")
  line.Name = "Line"
@@ -25,18 +43,21 @@ scrg.Parent = game.CoreGui
  line.Position = UDim2.new(0,1,0,25)
  line.BackgroundColor3 = Color3.fromRGB(55, 55, 55)
  line.BorderSizePixel = 0
+ line.ZIndex = 3
  line.Parent = main
  
  local text = Instance.new("TextLabel")
  text.Name = "Title"
- text.Parent = main
- text.Size = UDim2.new(0,401,0,25)
- text.Position = UDim2.new(0,1,0,0)
+ text.Parent = cs
+ text.Size = UDim2.new(0,448,0,31)
+ text.Position = UDim2.new(0,5,0,150)
  text.Text = " UI Library from larett"
  text.TextSize = 15
  text.BackgroundColor3 = Color3.fromRGB(33,33,33)
  text.TextColor3 = Color3.fromRGB(88,88,88)
  text.TextXAlignment = Enum.TextXAlignment.Left
+ text.ZIndex = 1
+
  local scf1 = Instance.new("ScrollingFrame")
  scf1.Name = "Tab1"
  scf1.Parent = main
@@ -89,6 +110,9 @@ scrg.Parent = game.CoreGui
  local corner5 = Instance.new("UICorner")
  corner5.CornerRadius = UDim.new(0, 21)
  corner5.Parent = text
+ local corner6 = Instance.new("UICorner")
+ corner6.CornerRadius = UDim.new(0, 21)
+ corner6.Parent =  mn
 
     x.MouseButton1Click:Connect(function()
     scrg:Destroy()
@@ -100,4 +124,17 @@ scrg.Parent = game.CoreGui
 
     x.MouseLeave:Connect(function()
     x.TextColor3 = Color3.fromRGB(255, 255, 255)
+    end)
+    local toggle = false
+
+    mn.MouseButton1Click:Connect(function()
+    toggle = not toggle
+    main.Visible = not toggle
+    end)
+    mn.MouseEnter:Connect(function()
+    mn.TextColor3 = Color3.fromRGB(255, 255, 0)
+    end)
+
+    mn.MouseLeave:Connect(function()
+    mn.TextColor3 = Color3.fromRGB(255, 255, 255)
     end)
