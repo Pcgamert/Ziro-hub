@@ -1,4 +1,4 @@
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Pcgamert/build-a-boat-for-treashure-script/main/Gui.lua"))()
+local Library = loadstring(game:HttpGet("local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Robojini/Tuturial_UI_Library/main/UI_Template_1"))()"))()
 
 local Window = Library.CreateLib("Ziro hub", "RJTheme3")
 local Tab = Window:NewTab("Main")
