@@ -26,7 +26,17 @@ scrg.Parent = game.CoreGui
  line.BackgroundColor3 = Color3.fromRGB(55, 55, 55)
  line.BorderSizePixel = 0
  line.Parent = main
-
+ 
+ local text = Instance.new("TextLabel")
+ text.Name = "Title"
+ text.Parent = main
+ text.Size = UDim2.new(0,401,0,25)
+ text.Position = UDim2.new(0,1,0,0)
+ text.Text = " UI Library from larett"
+ text.TextSize = 15
+ text.BackgroundColor3 = Color3.fromRGB(33,33,33)
+ text.TextColor3 = Color3.fromRGB(88,88,88)
+ text.TextXAlignment = Enum.TextXAlignment.Left
  local scf1 = Instance.new("ScrollingFrame")
  scf1.Name = "Tab1"
  scf1.Parent = main
@@ -37,6 +47,7 @@ scrg.Parent = game.CoreGui
  scf1.BorderSizePixel = 0
  scf1.ScrollBarThickness = 8
  scf1.ClipsDescendants = true
+ 
  local scf2 = Instance.new("ScrollingFrame")
  scf2.Name = "Tab2"
  scf2.Parent = main
@@ -47,11 +58,12 @@ scrg.Parent = game.CoreGui
  scf2.BorderSizePixel = 0
  scf2.ScrollBarThickness = 8
  scf2.ClipsDescendants = true
+ 
  local scf3 = Instance.new("ScrollingFrame")
  scf3.Name = "Tab3"
  scf3.Parent = main
- scf3.Size = UDim2.new(0,150,0,268)
- scf3.Position = UDim2.new(0,300,0,31)
+ scf3.Size = UDim2.new(0,147,0,268)
+ scf3.Position = UDim2.new(0,302,0,31)
  scf3.AutomaticCanvasSize = Enum.AutomaticSize.Y
  scf3.BackgroundColor3 = Color3.fromRGB(33,33,33)
  scf3.BorderSizePixel = 0
@@ -62,7 +74,6 @@ scrg.Parent = game.CoreGui
  local corner = Instance.new("UICorner")
  corner.CornerRadius = UDim.new(0, 15)
  corner.Parent = main
-
  local corner1 = Instance.new("UICorner")
  corner1.CornerRadius = UDim.new(0, 15)
  corner1.Parent = x
@@ -75,6 +86,9 @@ scrg.Parent = game.CoreGui
  local corner4 = Instance.new("UICorner")
  corner4.CornerRadius = UDim.new(0, 21)
  corner4.Parent = scf3
+ local corner5 = Instance.new("UICorner")
+ corner5.CornerRadius = UDim.new(0, 21)
+ corner5.Parent = text
 
     x.MouseButton1Click:Connect(function()
     scrg:Destroy()
