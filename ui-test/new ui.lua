@@ -27,7 +27,7 @@ scrg.Parent = game.CoreGui
  x.AutoButtonColor = false
  
  local mn = Instance.new("TextButton")
- mn.Name = "Close"
+ mn.Name = "Minimize"
  mn.Size = UDim2.new(0,23,0,23)
  mn.Position = UDim2.new(0,406,0,153)
  mn.Parent = cs
@@ -97,19 +97,19 @@ scrg.Parent = game.CoreGui
 
 local list = Instance.new("UIListLayout")
 list.Parent = scf1
-list.Padding = UDim.new(0, 10)
+list.Padding = UDim.new(0, 7)
 list.SortOrder = Enum.SortOrder.LayoutOrder
 list.HorizontalAlignment = Enum.HorizontalAlignment.Center
 
 local list1 = Instance.new("UIListLayout")
 list1.Parent = scf2
-list1.Padding = UDim.new(0, 10)
+list1.Padding = UDim.new(0, 7)
 list1.SortOrder = Enum.SortOrder.LayoutOrder
 list1.HorizontalAlignment = Enum.HorizontalAlignment.Center
 
 local list2 = Instance.new("UIListLayout")
 list2.Parent = scf3
-list2.Padding = UDim.new(0, 10)
+list2.Padding = UDim.new(0, 7)
 list2.SortOrder = Enum.SortOrder.LayoutOrder
 list2.HorizontalAlignment = Enum.HorizontalAlignment.Center
 
@@ -160,16 +160,29 @@ list2.HorizontalAlignment = Enum.HorizontalAlignment.Center
     mn.TextColor3 = Color3.fromRGB(255, 255, 255)
     end)
 
-function CreateButton(textImport, parent)
+function CreateButton(textImport, parent, callback)
     local b = Instance.new("TextButton")
     b.Name = "Button"
     b.Parent = parent
     b.Text = textImport
+    b.TextSize = 15
+    b.BorderSizePixel = 0
+    b.TextScaled = true
+    b.TextYAlignment = Enum.TextYAlignment.Top
     b.Size = UDim2.new(0, 130, 0, 25)
     b.Position = UDim2.new(0, 0, 0, 0)
-    b.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
-    b.TextColor3 = Color3.fromRGB(255, 255, 255)
+    b.BackgroundColor3 = Color3.fromRGB(77, 77, 77)
+    b.TextColor3 = Color3.fromRGB(220, 220, 220)
     b.AutoButtonColor = true
+
+    local corner1 = Instance.new("UICorner")
+    corner1.CornerRadius = UDim.new(0, 10)
+    corner1.Parent = b
+
+    if callback then
+        b.MouseButton1Click:Connect(callback)
+    end
+
     return b
 end
 local UserInputService = game:GetService("UserInputService")
@@ -202,10 +215,7 @@ UserInputService.InputChanged:Connect(function(input)
 		local delta = input.Position - mousePos
 		draggableFrame.Position = UDim2.new(
 			framePos.X.Scale, framePos.X.Offset + delta.X,
-			framePos.Y.Scale, framePos.Y.Offset + delta.Y
-		)
+			framePos.Y.Scale, framePos.Y.Offset + delta.Y)
 	end
 end)
 end
-UI()
-CreateButton("гргр",scf1)
