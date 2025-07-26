@@ -59,39 +59,59 @@ scrg.Parent = game.CoreGui
  text.TextXAlignment = Enum.TextXAlignment.Left
  text.ZIndex = 1
 
- local scf1 = Instance.new("ScrollingFrame")
+ scf1 = Instance.new("ScrollingFrame")
  scf1.Name = "Tab1"
  scf1.Parent = main
  scf1.Size = UDim2.new(0,150,0,268)
  scf1.Position = UDim2.new(0,1,0,31)
+ scf1.CanvasSize = UDim2.new(0,0,0,268) 
  scf1.AutomaticCanvasSize = Enum.AutomaticSize.Y
  scf1.BackgroundColor3 = Color3.fromRGB(33,33,33)
  scf1.BorderSizePixel = 0
  scf1.ScrollBarThickness = 8
  scf1.ClipsDescendants = true
  
- local scf2 = Instance.new("ScrollingFrame")
+ scf2 = Instance.new("ScrollingFrame")
  scf2.Name = "Tab2"
  scf2.Parent = main
  scf2.Size = UDim2.new(0,150,0,268)
  scf2.Position = UDim2.new(0,151,0,31)
+ scf2.CanvasSize = UDim2.new(0,0,0,268)
  scf2.AutomaticCanvasSize = Enum.AutomaticSize.Y
  scf2.BackgroundColor3 = Color3.fromRGB(33,33,33)
  scf2.BorderSizePixel = 0
  scf2.ScrollBarThickness = 8
  scf2.ClipsDescendants = true
  
- local scf3 = Instance.new("ScrollingFrame")
+ scf3 = Instance.new("ScrollingFrame")
  scf3.Name = "Tab3"
  scf3.Parent = main
  scf3.Size = UDim2.new(0,147,0,268)
  scf3.Position = UDim2.new(0,302,0,31)
+ scf3.CanvasSize = UDim2.new(0,0,0,268)
  scf3.AutomaticCanvasSize = Enum.AutomaticSize.Y
  scf3.BackgroundColor3 = Color3.fromRGB(33,33,33)
  scf3.BorderSizePixel = 0
  scf3.ScrollBarThickness = 8
  scf3.ClipsDescendants = true
 
+local list = Instance.new("UIListLayout")
+list.Parent = scf1
+list.Padding = UDim.new(0, 10)
+list.SortOrder = Enum.SortOrder.LayoutOrder
+list.HorizontalAlignment = Enum.HorizontalAlignment.Center
+
+local list1 = Instance.new("UIListLayout")
+list1.Parent = scf2
+list1.Padding = UDim.new(0, 10)
+list1.SortOrder = Enum.SortOrder.LayoutOrder
+list1.HorizontalAlignment = Enum.HorizontalAlignment.Center
+
+local list2 = Instance.new("UIListLayout")
+list2.Parent = scf3
+list2.Padding = UDim.new(0, 10)
+list2.SortOrder = Enum.SortOrder.LayoutOrder
+list2.HorizontalAlignment = Enum.HorizontalAlignment.Center
 
  local corner = Instance.new("UICorner")
  corner.CornerRadius = UDim.new(0, 15)
@@ -140,11 +160,18 @@ scrg.Parent = game.CoreGui
     mn.TextColor3 = Color3.fromRGB(255, 255, 255)
     end)
 
-    function CreateButton(Text)
+function CreateButton(textImport, parent)
     local b = Instance.new("TextButton")
-    b.
-    end
-
+    b.Name = "Button"
+    b.Parent = parent
+    b.Text = textImport
+    b.Size = UDim2.new(0, 130, 0, 25)
+    b.Position = UDim2.new(0, 0, 0, 0)
+    b.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
+    b.TextColor3 = Color3.fromRGB(255, 255, 255)
+    b.AutoButtonColor = true
+    return b
+end
 local UserInputService = game:GetService("UserInputService")
 
 local dragging = false
@@ -180,3 +207,5 @@ UserInputService.InputChanged:Connect(function(input)
 	end
 end)
 end
+UI()
+CreateButton("гргр",scf1)
