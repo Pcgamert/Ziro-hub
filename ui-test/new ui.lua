@@ -138,3 +138,37 @@ scrg.Parent = game.CoreGui
     mn.MouseLeave:Connect(function()
     mn.TextColor3 = Color3.fromRGB(255, 255, 255)
     end)
+local UserInputService = game:GetService("UserInputService")
+
+local dragging = false
+local dragInput, mousePos, framePos
+
+-- Фрейм, который тащим
+local draggableFrame = cs -- заменяешь на свой main или другой
+
+-- Область, за которую тащим (можно сам draggableFrame)
+local dragHandle = draggableFrame -- например: text, line, etc.
+
+dragHandle.InputBegan:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseButton1 then
+		dragging = true
+		mousePos = input.Position
+		framePos = draggableFrame.Position
+
+		input.Changed:Connect(function()
+			if input.UserInputState == Enum.UserInputState.End then
+				dragging = false
+			end
+		end)
+	end
+end)
+
+UserInputService.InputChanged:Connect(function(input)
+	if dragging and input.UserInputType == Enum.UserInputType.MouseMovement then
+		local delta = input.Position - mousePos
+		draggableFrame.Position = UDim2.new(
+			framePos.X.Scale, framePos.X.Offset + delta.X,
+			framePos.Y.Scale, framePos.Y.Offset + delta.Y
+		)
+	end
+end)
