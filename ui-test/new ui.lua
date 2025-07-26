@@ -147,7 +147,7 @@ local dragInput, mousePos, framePos
 local draggableFrame = cs -- заменяешь на свой main или другой
 
 -- Область, за которую тащим (можно сам draggableFrame)
-local dragHandle = draggableFrame -- например: text, line, etc.
+local dragHandle = text-- например: text, line, etc.
 
 dragHandle.InputBegan:Connect(function(input)
 	if input.UserInputType == Enum.UserInputType.MouseButton1 then
