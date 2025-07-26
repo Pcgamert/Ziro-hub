@@ -1,3 +1,4 @@
+function UI()
 local scrg = Instance.new("ScreenGui")
 scrg.Name = "ScreenGui"
 scrg.Parent = game.CoreGui
@@ -138,6 +139,12 @@ scrg.Parent = game.CoreGui
     mn.MouseLeave:Connect(function()
     mn.TextColor3 = Color3.fromRGB(255, 255, 255)
     end)
+
+    function CreateButton(Text)
+    local b = Instance.new("TextButton")
+    b.
+    end
+
 local UserInputService = game:GetService("UserInputService")
 
 local dragging = false
@@ -147,7 +154,7 @@ local dragInput, mousePos, framePos
 local draggableFrame = cs -- заменяешь на свой main или другой
 
 -- Область, за которую тащим (можно сам draggableFrame)
-local dragHandle = text-- например: text, line, etc.
+local dragHandle = text -- например: text, line, etc.
 
 dragHandle.InputBegan:Connect(function(input)
 	if input.UserInputType == Enum.UserInputType.MouseButton1 then
@@ -172,3 +179,4 @@ UserInputService.InputChanged:Connect(function(input)
 		)
 	end
 end)
+end
