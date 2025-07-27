@@ -1981,13 +1981,6 @@ end
 -- main
 if not _G.SimpleSpyExecuted then
 	local succeeded, err = pcall(function()
-		ContentProvider:PreloadAsync({
-			"rbxassetid://6065821980",
-			"rbxassetid://6065774948",
-			"rbxassetid://6065821086",
-			"rbxassetid://6065821596",
-			ImageLabel,
-		})
 		-- if gethui then funcEnabled = false end
 		onToggleButtonClick()
 		RemoteTemplate.Parent = nil
