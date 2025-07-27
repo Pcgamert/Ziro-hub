@@ -96,7 +96,6 @@ local Simple = Instance.new("TextButton")
 local CloseButton = Instance.new("TextButton")
 local ImageLabel = Instance.new("ImageLabel")
 local MaximizeButton = Instance.new("TextButton")
-local ImageLabel_2 = Instance.new("ImageLabel")
 local MinimizeButton = Instance.new("TextButton")
 local ImageLabel_3 = Instance.new("ImageLabel")
 local ToolTip = Instance.new("Frame")
@@ -293,16 +292,9 @@ MaximizeButton.BorderSizePixel = 0
 MaximizeButton.Position = UDim2.new(1, -38, 0, 0)
 MaximizeButton.Size = UDim2.new(0, 19, 0, 19)
 MaximizeButton.Font = Enum.Font.SourceSans
-MaximizeButton.Text = ""
+MaximizeButton.Text = "⛶"
 MaximizeButton.TextColor3 = Color3.new(0, 0, 0)
 MaximizeButton.TextSize = 14
-
-ImageLabel_2.Parent = MaximizeButton
-ImageLabel_2.BackgroundColor3 = Color3.new(1, 1, 1)
-ImageLabel_2.BackgroundTransparency = 1
-ImageLabel_2.Position = UDim2.new(0, 5, 0, 5)
-ImageLabel_2.Size = UDim2.new(0, 9, 0, 9)
-ImageLabel_2.Image = "http://www.roblox.com/asset/?id=5597108117"
 
 MinimizeButton.Name = "MinimizeButton"
 MinimizeButton.Parent = TopBar
@@ -311,16 +303,9 @@ MinimizeButton.BorderSizePixel = 0
 MinimizeButton.Position = UDim2.new(1, -57, 0, 0)
 MinimizeButton.Size = UDim2.new(0, 19, 0, 19)
 MinimizeButton.Font = Enum.Font.SourceSans
-MinimizeButton.Text = ""
+MinimizeButton.Text = "▂"
 MinimizeButton.TextColor3 = Color3.new(0, 0, 0)
-MinimizeButton.TextSize = 14
-
-ImageLabel_3.Parent = MinimizeButton
-ImageLabel_3.BackgroundColor3 = Color3.new(1, 1, 1)
-ImageLabel_3.BackgroundTransparency = 1
-ImageLabel_3.Position = UDim2.new(0, 5, 0, 5)
-ImageLabel_3.Size = UDim2.new(0, 9, 0, 9)
-ImageLabel_3.Image = "http://www.roblox.com/asset/?id=5597105827"
+MinimizeButton.TextSize = 10
 
 ToolTip.Name = "ToolTip"
 ToolTip.Parent = SimpleSpy2
@@ -620,12 +605,12 @@ end
 
 --- Executed when the X button is hovered over
 function onXButtonHover()
-	TweenService:Create(CloseButton, TweenInfo.new(0.2), { BackgroundColor3 = Color3.fromRGB(255, 60, 60) }):Play()
+	TweenService:Create(CloseButton, TweenInfo.new(0.2), { TextColor3 = Color3.fromRGB(255, 60, 60) }):Play()
 end
 
 --- Executed when the X button is unhovered over
 function onXButtonUnhover()
-	TweenService:Create(CloseButton, TweenInfo.new(0.2), { BackgroundColor3 = Color3.fromRGB(37, 36, 38) }):Play()
+	TweenService:Create(CloseButton, TweenInfo.new(0.2), { TextColor3 = Color3.fromRGB(255,255,255) }):Play()
 end
 
 --- Toggles the remote spy method (when button clicked)
