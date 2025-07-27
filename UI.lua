@@ -196,7 +196,15 @@ function UI()
         Scripts = {
         },
         Utils = {
-            {name = "DarkDexv1", callback = function()  end},
+            DarkDex = {
+            {name = "DarkDexV1", callback = function() loadstring(game:HttpGet("https://github.com/Pcgamert/Ziro-hub/blob/Scripts/DarkDexv1.lua"))() end},
+            {name = "DarkDexV2", callback = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/Pcgamert/Ziro-hub/refs/heads/Scripts/DarkDexV2.lua"))() end},
+            {name = "DarkDexV3", callback = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/Pcgamert/Ziro-hub/refs/heads/Scripts/DarkDexV3SE.lua"))() end},
+            {name = "DarkDexV4(1.1.0)", callback = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/Pcgamert/Ziro-hub/refs/heads/Scripts/DarkDexv4(alpha1.1.0).lua"))() end},
+            }
+            RemoteSpy = {
+                {name = "", callback = function() loadstring(game:HttpGet("https://github.com/Pcgamert/Ziro-hub/blob/Scripts/DarkDexv1.lua"))() end},
+            }
         },
         Misc = {
 
