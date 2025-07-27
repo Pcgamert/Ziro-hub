@@ -203,7 +203,7 @@ function UI()
             {name = "DarkDexV4(1.1.0)", callback = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/Pcgamert/Ziro-hub/refs/heads/Scripts/DarkDexv4(alpha1.1.0).lua"))() end},
             },
             RemoteSpy = {
-            {name = "SimpleSpy lite", callback = function() loadstring(game:HttpGet('https://raw.githubusercontent.com/Pcgamert/Ziro-hub/refs/heads/Scripts/SimpleSpy%20lite.lua'))() end},
+            {name = "SimpleSpy lite", callback = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/Pcgamert/Ziro-hub/refs/heads/Scripts/SimpleSy%20Lite2.lua"))() end},
             },
         },
         Misc = {
