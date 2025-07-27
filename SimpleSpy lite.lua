@@ -2028,7 +2028,6 @@ if not _G.SimpleSpyExecuted then
 		CloseButton.MouseLeave:Connect(onXButtonUnhover)
 		Simple.MouseEnter:Connect(onToggleButtonHover)
 		Simple.MouseLeave:Connect(onToggleButtonUnhover)
-		CloseButton.MouseButton1Click:Connect(shutdown)
 		table.insert(connections, UserInputService.InputBegan:Connect(backgroundUserInput))
 		connectResize()
 		SimpleSpy2.Enabled = true
@@ -2473,5 +2472,4 @@ local settings = {
 }
 --// Init 
 _G.data = settings
-loadstring(game:HttpGet('https://raw.githubusercontent.com/Pcgamert/Ziro-hub/refs/heads/Scripts/SimpleSpy%20lite.lua'))()
 warn "Need reolad game If closed" 
