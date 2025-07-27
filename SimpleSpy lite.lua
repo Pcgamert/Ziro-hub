@@ -60,7 +60,7 @@ if _G.data['SaveScanLogs'] then
 	end
 	print('✅ - Scan logs has been saved! | time taken: ' .. tick() - cur_time .. ' seconds')
 end
-warn('Loading SimpleSpy v2.5 lite by osint boss')
+warn('Loading SimpleSpy v2.6 lite by osint boss edited larett')
 
 --\\
 local Players = game:GetService("Players")
@@ -261,7 +261,7 @@ Simple.BackgroundTransparency = 1
 Simple.Position = UDim2.new(0, 5, 0, 0)
 Simple.Size = UDim2.new(0, 57, 0, 18)
 Simple.Font = Enum.Font.SourceSansBold
-Simple.Text = "SimpleSpy lite - (fixed by osint boss)"
+Simple.Text = "SimpleSpy lite - (by osint boss, fixed by larett)"
 Simple.TextColor3 = Color3.new(1, 1, 1)
 Simple.TextSize = 14
 Simple.TextXAlignment = Enum.TextXAlignment.Left
@@ -2210,7 +2210,7 @@ end, function()
             end
         end
     end]]
-        TextLabel.Text = "Done! get calling script by RemoteHook made by osint boss"
+        TextLabel.Text = "Done! get calling script by RemoteHook made by osint boss, edited by laret"
 	end
 end)
 
