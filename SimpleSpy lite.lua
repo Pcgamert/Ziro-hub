@@ -1987,8 +1987,6 @@ if not _G.SimpleSpyExecuted then
 			"rbxassetid://6065821086",
 			"rbxassetid://6065821596",
 			ImageLabel,
-			ImageLabel_2,
-			ImageLabel_3,
 		})
 		-- if gethui then funcEnabled = false end
 		onToggleButtonClick()
