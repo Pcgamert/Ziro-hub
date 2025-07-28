@@ -1,3 +1,14 @@
+local settings = {
+    SaveDecompileLogs = true, -- saves decompile logs so you dont have to decompile again
+    SaveScanLogs = true, -- saves scan logs (scans for localscript to decompile) so you dont have to scan again
+    ScanForNewInstance = true, -- scans for new localscript and decompile it and add it to the decompile logs
+    InterceptUntilRan = true, -- blocks request until you manually run it (i recommend when bypassing keys)
+    CursorOffset = -15, -- Cursor offset
+    PathToDump = {game.Players.LocalPlayer, game:GetService('ReplicatedStorage')} -- path to dump
+
+}
+--// Init 
+_G.data = settings
 --[[
     SimpleSpy is a lightweight penetration testing tool that logs remote calls.
 
@@ -66,9 +77,7 @@ warn('Loading SimpleSpy v2.6 lite by osint boss edited larett')
 local Players = game:GetService("Players")
 local CoreGui = game:GetService("CoreGui")
 local Highlight =
-	loadstring(
-		game:HttpGet("https://github.com/exxtremestuffs/SimpleSpySource/raw/master/highlight.lua")
-	)()
+	loadstring(game:HttpGet("https://github.com/exxtremestuffs/SimpleSpySource/raw/master/highlight.lua"))()
 
 ---- GENERATED (kinda sorta mostly) BY GUI to LUA ----
 
@@ -97,10 +106,9 @@ local CloseButton = Instance.new("TextButton")
 local ImageLabel = Instance.new("ImageLabel")
 local MaximizeButton = Instance.new("TextButton")
 local MinimizeButton = Instance.new("TextButton")
-local ImageLabel_3 = Instance.new("ImageLabel")
 local ToolTip = Instance.new("Frame")
 local TextLabel = Instance.new("TextLabel")
-
+local max = true 
 --Properties:
 
 SimpleSpy2.Name = "SimpleSpy2"
@@ -257,11 +265,11 @@ Simple.Parent = TopBar
 Simple.BackgroundColor3 = Color3.new(1, 1, 1)
 Simple.AutoButtonColor = false
 Simple.BackgroundTransparency = 1
-Simple.Position = UDim2.new(0, 5, 0, 0)
-Simple.Size = UDim2.new(0, 57, 0, 18)
+Simple.Position = UDim2.new(0, 0, 0, 0)
+Simple.Size = UDim2.new(0, 75, 0, 18)
 Simple.Font = Enum.Font.SourceSansBold
-Simple.Text = "SimpleSpy lite - (by osint boss, fixed by larett)"
 Simple.TextColor3 = Color3.new(1, 1, 1)
+Simple.Text = "SimpleSpy lite - (by osint boss, Edited by larett)"
 Simple.TextSize = 14
 Simple.TextXAlignment = Enum.TextXAlignment.Left
 
@@ -269,44 +277,58 @@ CloseButton.Name = "CloseButton"
 CloseButton.Parent = TopBar
 CloseButton.BackgroundColor3 = Color3.new(0.145098, 0.141176, 0.14902)
 CloseButton.BorderSizePixel = 0
-CloseButton.Position = UDim2.new(1, -19, 0, 0)
+CloseButton.BackgroundTransparency = 1
+CloseButton.Position = UDim2.new(1, -19, 0, -1)
 CloseButton.Size = UDim2.new(0, 19, 0, 19)
 CloseButton.Font = Enum.Font.SourceSans
-CloseButton.Text = ""
-CloseButton.TextColor3 = Color3.new(0, 0, 0)
-CloseButton.TextSize = 14
+CloseButton.Text = "×"
+CloseButton.TextColor3 = Color3.fromRGB(160,160,160)
+CloseButton.TextSize = 25
 CloseButton.MouseButton1Click:Connect(function()
 SimpleSpy2:Destroy()
 end)
-ImageLabel.Parent = CloseButton
-ImageLabel.BackgroundColor3 = Color3.new(1, 1, 1)
-ImageLabel.BackgroundTransparency = 1
-ImageLabel.Position = UDim2.new(0, 5, 0, 5)
-ImageLabel.Size = UDim2.new(0, 9, 0, 9)
-ImageLabel.Image = "http://www.roblox.com/asset/?id=5597086202"
 
 MaximizeButton.Name = "MaximizeButton"
 MaximizeButton.Parent = TopBar
 MaximizeButton.BackgroundColor3 = Color3.new(0.145098, 0.141176, 0.14902)
 MaximizeButton.BorderSizePixel = 0
-MaximizeButton.Position = UDim2.new(1, -38, 0, 0)
+MaximizeButton.Position = UDim2.new(1, -38, 0, -1)
 MaximizeButton.Size = UDim2.new(0, 19, 0, 19)
 MaximizeButton.Font = Enum.Font.SourceSans
-MaximizeButton.Text = "⛶"
-MaximizeButton.TextColor3 = Color3.new(0, 0, 0)
+MaximizeButton.Text = "☐"
+MaximizeButton.BackgroundTransparency = 1
+MaximizeButton.TextColor3 = Color3.fromRGB(160, 160, 160)
 MaximizeButton.TextSize = 14
+MaximizeButton.MouseButton1Click:Connect(function()
+    max = not max
+    wait(1)
+    Simple.TextWrapped = not max
+
+end)
+MaximizeButton.MouseEnter:Connect(function()
+MaximizeButton.TextColor3 = Color3.fromRGB(0,255,0)
+end)
+MaximizeButton.MouseLeave:Connect(function()
+MaximizeButton.TextColor3 = Color3.fromRGB(160,160,160)
+end)
 
 MinimizeButton.Name = "MinimizeButton"
 MinimizeButton.Parent = TopBar
 MinimizeButton.BackgroundColor3 = Color3.new(0.145098, 0.141176, 0.14902)
 MinimizeButton.BorderSizePixel = 0
-MinimizeButton.Position = UDim2.new(1, -57, 0, 0)
+MinimizeButton.BackgroundTransparency = 1
+MinimizeButton.Position = UDim2.new(1, -57, 0, -1)
 MinimizeButton.Size = UDim2.new(0, 19, 0, 19)
 MinimizeButton.Font = Enum.Font.SourceSans
 MinimizeButton.Text = "▂"
-MinimizeButton.TextColor3 = Color3.new(0, 0, 0)
+MinimizeButton.TextColor3 = Color3.fromRGB(160, 160, 160)
 MinimizeButton.TextSize = 10
-
+MinimizeButton.MouseEnter:Connect(function()
+MinimizeButton.TextColor3 = Color3.fromRGB(255,255,0)
+end)
+MinimizeButton.MouseLeave:Connect(function()
+MinimizeButton.TextColor3 = Color3.fromRGB(160,160,160)
+end)
 ToolTip.Name = "ToolTip"
 ToolTip.Parent = SimpleSpy2
 ToolTip.BackgroundColor3 = Color3.fromRGB(26, 26, 26)
@@ -421,7 +443,7 @@ local connections = {}
 local useGetCallingScript = false
 
 --- used to enable/disable SimpleSpy's keyToString for remotes
-local keyToString = false
+keyToString = false
 
 -- determines whether return values are recorded
 local recordReturnValues = false
@@ -605,16 +627,17 @@ end
 
 --- Executed when the X button is hovered over
 function onXButtonHover()
-	TweenService:Create(CloseButton, TweenInfo.new(0.2), { TextColor3 = Color3.fromRGB(255, 60, 60) }):Play()
+	TweenService:Create(CloseButton, TweenInfo.new(0.2), { TextColor3 = Color3.fromRGB(255,0,0) }):Play()
 end
 
 --- Executed when the X button is unhovered over
 function onXButtonUnhover()
-	TweenService:Create(CloseButton, TweenInfo.new(0.2), { TextColor3 = Color3.fromRGB(255,255,255) }):Play()
+	TweenService:Create(CloseButton, TweenInfo.new(0.2), { TextColor3 = Color3.fromRGB(160,160,160) }):Play()
 end
 
 --- Toggles the remote spy method (when button clicked)
 function onToggleButtonClick()
+
 	if toggle then
 		TweenService:Create(Simple, TweenInfo.new(0.5), { TextColor3 = Color3.fromRGB(252, 51, 51) }):Play()
 	else
@@ -844,7 +867,7 @@ end
 --- Expands code box to fit screen for more convenient viewing
 function toggleMaximize()
 	if not sideClosed and not maximized then
-		maximized = true
+        maximized = true
 		local disable = Instance.new("TextButton")
 		local prevSize = UDim2.new(0, CodeBox.AbsoluteSize.X, 0, CodeBox.AbsoluteSize.Y)
 		local prevPos = UDim2.new(0, CodeBox.AbsolutePosition.X, 0, CodeBox.AbsolutePosition.Y)
@@ -2343,6 +2366,7 @@ newButton("KeyToString", function()
 	)
 end, function()
 	keyToString = not keyToString
+    
 	TextLabel.Text = string.format(
 		"[%s] [BETA] Uses an experimental new function to replicate Roblox's behavior when a non-primitive type is used as a key in a table. Still in development and may not properly reflect tostringed (empty) userdata.",
 		keyToString and "ENABLED" or "DISABLED"
@@ -2426,14 +2450,32 @@ getgenv().http.request = function(...) -- intercept
 	return args
 end
 print('a2')
--- Join discord.gg/fGz4KuP5kH to get updated, suggest features, report bugs
--- showcase: https://www.youtube.com/watch?v=6aRYk3Rzbjg
+ local UserInputService = game:GetService("UserInputService")
+    local dragging = false
+    local dragInput, mousePos, framePos
 
---[[
-    SimpleSpy is a lightweight penetration testing tool that logs remote calls.
+    local draggableFrame = Background
+    local dragHandle = TopBar
 
-    Credits:
-        exx - basically everything
-        Frosty - GUI to Lua
-        OSINT BOSS - Fixing simplespy, hooks, func, etc so it works for low level executor (also works for roblox studio environment)
-]]
+    dragHandle.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 then
+            dragging = true
+            mousePos = input.Position
+            framePos = draggableFrame.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragging = false
+                end
+            end)
+        end
+    end)
+
+    UserInputService.InputChanged:Connect(function(input)
+        if dragging and input.UserInputType == Enum.UserInputType.MouseMovement then
+            local delta = input.Position - mousePos
+            draggableFrame.Position = UDim2.new(
+                framePos.X.Scale, framePos.X.Offset + delta.X,
+                framePos.Y.Scale, framePos.Y.Offset + delta.Y)
+        end
+    end)
