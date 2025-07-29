@@ -98,6 +98,7 @@ local MinimizeButton = Instance.new("TextButton")
 local ToolTip = Instance.new("Frame")
 local TextLabel = Instance.new("TextLabel")
 local max = true 
+local min = false
 --Properties:
 
 SimpleSpy2.Name = "SimpleSpy2"
@@ -275,6 +276,7 @@ CloseButton.TextColor3 = Color3.fromRGB(160,160,160)
 CloseButton.TextSize = 25
 CloseButton.MouseButton1Click:Connect(function()
 SimpleSpy2:Destroy()
+_G.SimpleSpyExecuted = false
 end)
 
 MaximizeButton.Name = "MaximizeButton"
@@ -289,10 +291,18 @@ MaximizeButton.BackgroundTransparency = 1
 MaximizeButton.TextColor3 = Color3.fromRGB(160, 160, 160)
 MaximizeButton.TextSize = 14
 MaximizeButton.MouseButton1Click:Connect(function()
-    max = not max
-    wait(1)
-    Simple.TextWrapped = not max
+	if min then
+		min = false
+		max = true
+	else
+		max = not max
+	end
 
+	if (not min and max) then
+		Simple.TextWrapped = false
+	else
+		Simple.TextWrapped = true
+	end
 end)
 MaximizeButton.MouseEnter:Connect(function()
 MaximizeButton.TextColor3 = Color3.fromRGB(0,255,0)
@@ -312,6 +322,15 @@ MinimizeButton.Font = Enum.Font.SourceSans
 MinimizeButton.Text = "▂"
 MinimizeButton.TextColor3 = Color3.fromRGB(160, 160, 160)
 MinimizeButton.TextSize = 10
+MinimizeButton.MouseButton1Click:Connect(function()
+	min = not min
+
+	if (not min and max) then
+		Simple.TextWrapped = false
+	else
+		Simple.TextWrapped = true
+	end
+end)
 MinimizeButton.MouseEnter:Connect(function()
 MinimizeButton.TextColor3 = Color3.fromRGB(255,255,0)
 end)
