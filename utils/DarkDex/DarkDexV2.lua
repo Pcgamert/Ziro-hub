@@ -8217,10 +8217,6 @@ scrollBar:Update()
 
 showProperties(GetSelection())
 
-bindSelectionChanged.Event:Connect(function()
-	showProperties(GetSelection())
-end)
-
 bindSetAwait.Event:connect(function(obj)
 	if AwaitingObjectValue then
 		AwaitingObjectValue = false
