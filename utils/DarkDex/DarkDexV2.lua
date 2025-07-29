@@ -8217,7 +8217,7 @@ scrollBar:Update()
 
 showProperties(GetSelection())
 
-bindSelectionChanged.Event:connect(function()
+bindSelectionChanged.Event:Connect(function()
 	showProperties(GetSelection())
 end)
 
