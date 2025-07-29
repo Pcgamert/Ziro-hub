@@ -197,10 +197,10 @@ function UI()
         },
         Utils = {
             DarkDex = {
-            {name = "DarkDexV1", callback = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/Pcgamert/Ziro-hub/refs/Scripts/DarkDex/DarkDexv1.lua"))() end},
-            {name = "DarkDexV2", callback = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/Pcgamert/Ziro-hub/refs/heads/Scripts/DarkDex/DarkDexV2.lua"))() end},
-            {name = "DarkDexV3", callback = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/Pcgamert/Ziro-hub/refs/heads/Scripts/DarDex/DarkDexV3SE.lua"))() end},
-            {name = "DarkDexV4(1.1.0)", callback = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/Pcgamert/Ziro-hub/refs/heads/Scripts/DarkDex/DarkDexv4(alpha1.1.0).lua"))() end},
+            {name = "DarkDexV1", callback = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/Pcgamert/Ziro-hub/refs/heads/Scripts/utils/DarkDex/DarkDexv1.lua"))() end},
+            {name = "DarkDexV2", callback = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/Pcgamert/Ziro-hub/refs/heads/Scripts/utils/DarkDex/DarkDexV2.lua"))() end},
+            {name = "DarkDexV3", callback = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/Pcgamert/Ziro-hub/refs/heads/Scripts/utils/DarDex/DarkDexV3SE.lua"))() end},
+            {name = "DarkDexV4(1.1.0)", callback = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/Pcgamert/Ziro-hub/refs/heads/Scripts/utils/DarkDex/DarkDexv4(alpha1.1.0).lua"))() end},
             },
             RemoteSpy = {
             {name = "SimpleSpy lite", callback = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/Pcgamert/Ziro-hub/refs/heads/Scripts/utils/RemoteSpy/SimpleSpy%20lite.lua"))() end},
