@@ -1,6 +1,6 @@
 local settings = {
     SaveDecompileLogs = false, -- saves decompile logs so you dont have to decompile again
-    SaveScanLogs = true, -- saves scan logs (scans for localscript to decompile) so you dont have to scan again
+    SaveScanLogs = false, -- saves scan logs (scans for localscript to decompile) so you dont have to scan again
     ScanForNewInstance = true, -- scans for new localscript and decompile it and add it to the decompile logs
     InterceptUntilRan = true, -- blocks request until you manually run it (i recommend when bypassing keys)
     CursorOffset = -15, -- Cursor offset
