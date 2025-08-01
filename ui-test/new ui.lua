@@ -349,7 +349,7 @@ function CreateSlider(textImport, Index, min, max, callback)
     c.MouseLeave:Connect(function()
 	toolTip.Visible = false
     end)
-    
+
     local corner1 = Instance.new("UICorner")
     corner1.CornerRadius = UDim.new(0, 7)
     corner1.Parent = s
@@ -424,8 +424,3 @@ UserInputService.InputChanged:Connect(function(input)
 	end
 end)
 end
-UI("PizdaZalupa")
-CreateTab("HUI sobaki")
-CreateSlider('zopa',3,0,1000,function(s)
-    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
-end)
