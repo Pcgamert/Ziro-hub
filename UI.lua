@@ -256,7 +256,7 @@ function UI()
     local dragInput, mousePos, framePos
 
     local draggableFrame = cs
-    local dragHandle = main
+    local dragHandle = text
 
     dragHandle.InputBegan:Connect(function(input)
         if input.UserInputType == Enum.UserInputType.MouseButton1 then
