@@ -1,0 +1,4 @@
+local rns = game:GetService("RunService")
+rns.RenderStepped:Connect(function()
+game.Players.LocalPlayer.Character.Humanoid.Jump = true
+end)
