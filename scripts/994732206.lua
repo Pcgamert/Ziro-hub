@@ -1,2 +1,4 @@
 local field = game:GetService("ReplicatedStorage").Effect.Container.DracoRace.BaseField
-field:Destroy()
+if game.GameId == 994732206 then
+    field:Destroy()
+end
